@@ -1,0 +1,10 @@
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\bin\Debug\CVEVuln.Models.dll.config
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\bin\Debug\CVEVuln.Models.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\bin\Debug\CVEVuln.Models.pdb
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\bin\Debug\EntityFramework.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\bin\Debug\EntityFramework.xml
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\obj\Debug\CVEVuln.Models.csprojResolveAssemblyReference.cache
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\obj\Debug\CVEVuln.Models.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Models\obj\Debug\CVEVuln.Models.pdb

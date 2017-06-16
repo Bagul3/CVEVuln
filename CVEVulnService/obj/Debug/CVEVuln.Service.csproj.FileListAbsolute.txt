@@ -1,0 +1,5 @@
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnService\bin\Debug\CVEVulnService.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnService\bin\Debug\CVEVulnService.pdb
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnService\obj\Debug\CVEVuln.Service.csprojResolveAssemblyReference.cache
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnService\obj\Debug\CVEVulnService.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnService\obj\Debug\CVEVulnService.pdb

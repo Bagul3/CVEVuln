@@ -1,0 +1,10 @@
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\bin\Debug\CVEVulnDA.dll.config
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\bin\Debug\CVEVulnDA.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\bin\Debug\CVEVulnDA.pdb
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\bin\Debug\EntityFramework.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\bin\Debug\EntityFramework.xml
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\obj\Debug\CVEVuln.DA.csprojResolveAssemblyReference.cache
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\obj\Debug\CVEVulnDA.dll
+c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVulnDA\obj\Debug\CVEVulnDA.pdb

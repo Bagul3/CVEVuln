@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CVE_VulnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="forname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="project" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Software">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Software_Id" Type="int" Nullable="false" />
+          <Property Name="Software_Name" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vulnerabilities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="softwareName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="vuln_Description" Type="varchar" MaxLength="8000" />
+          <Property Name="score" Type="decimal" Precision="20" Scale="0" />
+          <Property Name="cve_id" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CVE_VulnModelStoreContainer">
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Software" EntityType="Self.Software" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerabilities" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CVE_VulnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="forname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="project1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Software">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Software_Id" Type="Int32" Nullable="false" />
+          <Property Name="Software_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vulnerability">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="softwareName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vuln_Description" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="score" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="cve_id" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CVE_VulnEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Softwares" EntityType="Self.Software" />
+          <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerability" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CVE_VulnModelStoreContainer" CdmEntityContainer="CVE_VulnEntities">
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="CVE_VulnModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="forname" ColumnName="forname" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="project1" ColumnName="project" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Softwares">
+            <EntityTypeMapping TypeName="CVE_VulnModel.Software">
+              <MappingFragment StoreEntitySet="Software">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Software_Id" ColumnName="Software_Id" />
+                <ScalarProperty Name="Software_Name" ColumnName="Software_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vulnerabilities">
+            <EntityTypeMapping TypeName="CVE_VulnModel.Vulnerability">
+              <MappingFragment StoreEntitySet="Vulnerabilities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="softwareName" ColumnName="softwareName" />
+                <ScalarProperty Name="vuln_Description" ColumnName="vuln_Description" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="cve_id" ColumnName="cve_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

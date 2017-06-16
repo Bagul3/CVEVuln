@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.UI", "CVEVuln\CVEVuln.UI.csproj", "{A76F822B-9135-40F2-993F-8A715B745588}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.Api", "CVEApi\CVEVuln.Api.csproj", "{EC98FA13-D0C4-4592-8B43-6A8460AB0F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.Service", "CVEVulnService\CVEVuln.Service.csproj", "{6B330D52-78C4-4113-A698-FF26F11FA29D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.DA", "CVEVulnDA\CVEVuln.DA.csproj", "{E28CD09B-DD16-4FCC-875A-359501C1BDA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.Models", "CVEVuln.Models\CVEVuln.Models.csproj", "{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler", "Scheduler\Scheduler.csproj", "{FDEAFADA-038A-4819-A1E9-FE6B4CECCB73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.Extensions", "CVEVuln.Extensions\CVEVuln.Extensions.csproj", "{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A76F822B-9135-40F2-993F-8A715B745588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76F822B-9135-40F2-993F-8A715B745588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76F822B-9135-40F2-993F-8A715B745588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76F822B-9135-40F2-993F-8A715B745588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC98FA13-D0C4-4592-8B43-6A8460AB0F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC98FA13-D0C4-4592-8B43-6A8460AB0F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC98FA13-D0C4-4592-8B43-6A8460AB0F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC98FA13-D0C4-4592-8B43-6A8460AB0F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B330D52-78C4-4113-A698-FF26F11FA29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B330D52-78C4-4113-A698-FF26F11FA29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B330D52-78C4-4113-A698-FF26F11FA29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B330D52-78C4-4113-A698-FF26F11FA29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E28CD09B-DD16-4FCC-875A-359501C1BDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E28CD09B-DD16-4FCC-875A-359501C1BDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E28CD09B-DD16-4FCC-875A-359501C1BDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E28CD09B-DD16-4FCC-875A-359501C1BDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEAFADA-038A-4819-A1E9-FE6B4CECCB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEAFADA-038A-4819-A1E9-FE6B4CECCB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEAFADA-038A-4819-A1E9-FE6B4CECCB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEAFADA-038A-4819-A1E9-FE6B4CECCB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
