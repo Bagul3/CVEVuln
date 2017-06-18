@@ -1,1 +1,0 @@
-c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\CVEVuln.Extensions\obj\Debug\CVEVuln.Extensions.csprojResolveAssemblyReference.cache

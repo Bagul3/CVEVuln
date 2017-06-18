@@ -1,16 +1,18 @@
-﻿namespace CVEApi
+﻿using CVEVuln.Models;
+
+namespace CVEApi
 {
-    public class BaseApiResult
+    public class BaseApiResult<T>
     {
         public bool IsSuccess { get; internal set; }
 
-        public string Reason { get; internal set; }
+        public string Message { get; set; }
 
-        public string ErrorMessage { get; internal set; }
+        public T Content { get; set; }
 
-        public static BaseApiResult Create(string reason, string message)
+        public static BaseApiResult<T> Create(string message)
         {
-            return new BaseApiResult { IsSuccess = false, Reason = reason, ErrorMessage = message };
+            return new BaseApiResult<T> { IsSuccess = false, Message = message };
         }
     }
 }

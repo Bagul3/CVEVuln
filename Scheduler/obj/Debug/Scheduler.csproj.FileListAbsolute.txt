@@ -1,6 +1,0 @@
-c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\Scheduler\bin\Debug\Scheduler.exe.config
-c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\Scheduler\bin\Debug\Scheduler.exe
-c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\Scheduler\bin\Debug\Scheduler.pdb
-c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\Scheduler\obj\Debug\Scheduler.csprojResolveAssemblyReference.cache
-c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\Scheduler\obj\Debug\Scheduler.exe
-c:\Users\cshannon\documents\visual studio 2017\Projects\CVEVuln\Scheduler\obj\Debug\Scheduler.pdb

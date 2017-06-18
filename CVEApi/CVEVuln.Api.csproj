@@ -55,11 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiBase.cs" />
+    <Compile Include="ApiErrorResult.cs" />
     <Compile Include="BaseApiResult.cs" />
     <Compile Include="CommonApiReasons.cs" />
     <Compile Include="CveDetailsApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VulnApiResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -73,6 +73,13 @@
       <Project>{1249a56c-bf7b-463b-a2ba-d5caf2c79736}</Project>
       <Name>CVEVuln.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CVEVulnService\CVEVuln.Service.csproj">
+      <Project>{6b330d52-78c4-4113-a698-ff26f11fa29d}</Project>
+      <Name>CVEVuln.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CVEApi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

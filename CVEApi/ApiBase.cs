@@ -8,7 +8,7 @@ namespace CVEApi
     {
         public static ILog Logger { get; } = LogManager.GetCurrentClassLogger();
 
-        protected static T ExecuteSafely<T>(Func<T> func) where T : BaseApiResult, new()
+        protected static T ExecuteSafely<T>(Func<T> func) where T : ApiErrorResult<T>, new()
         {
             try
             {

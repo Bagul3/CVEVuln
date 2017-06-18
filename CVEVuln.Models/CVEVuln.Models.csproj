@@ -37,7 +37,7 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -71,9 +71,11 @@
       <DependentUpon>CVEVulnModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs" />
     <Compile Include="Software.cs">
       <DependentUpon>CVEVulnModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="VulnerabilitiesResource.cs" />
     <Compile Include="Vulnerability.cs">
       <DependentUpon>CVEVulnModels.tt</DependentUpon>
     </Compile>

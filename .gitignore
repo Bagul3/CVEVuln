@@ -1,0 +1,15 @@
+CVEApi/bin/
+CVEApi/obj/
+CVEVuln/bin/
+CVEVuln/obj/
+CVEVuln.Extensions/bin/
+CVEVuln.Extensions/obj/
+CVEVuln.Models/bin/
+CVEVuln.Models/obj/
+CVEVulnDA/bin/
+CVEVulnDA/obj/
+Scheduler/bin/
+Scheduler/obj/
+packages/
+CVEVulnService/bin/
+CVEVulnService/obj/
