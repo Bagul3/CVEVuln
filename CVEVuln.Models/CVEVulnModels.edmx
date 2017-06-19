@@ -27,10 +27,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="softwareName" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="vuln_Description" Type="varchar" MaxLength="8000" />
-          <Property Name="score" Type="decimal" Precision="20" Scale="0" />
-          <Property Name="cve_id" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cve_id" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="cwe_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="summary" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="cvss_score" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="exploit_count" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="publish_date" Type="datetime" />
+          <Property Name="update_date" Type="datetime" />
+          <Property Name="url" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CVE_VulnModelStoreContainer">
           <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
@@ -59,20 +63,24 @@
           <Property Name="Software_Id" Type="Int32" Nullable="false" />
           <Property Name="Software_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="Vulnerability">
+        <EntityType Name="Vulnerabilities">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="softwareName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="vuln_Description" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="score" Type="Decimal" Precision="20" Scale="0" />
-          <Property Name="cve_id" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cve_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cwe_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="summary" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cvss_score" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exploit_count" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="publish_date" Type="DateTime" Precision="3" />
+          <Property Name="update_date" Type="DateTime" Precision="3" />
+          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CVE_VulnEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Projects" EntityType="Self.Project" />
-          <EntitySet Name="Softwares" EntityType="Self.Software" />
-          <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerability" />
+          <EntitySet Name="Project" EntityType="Self.Project" />
+          <EntitySet Name="Software" EntityType="Self.Software" />
+          <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerabilities" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -80,7 +88,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CVE_VulnModelStoreContainer" CdmEntityContainer="CVE_VulnEntities">
-          <EntitySetMapping Name="Projects">
+          <EntitySetMapping Name="Project">
             <EntityTypeMapping TypeName="CVE_VulnModel.Project">
               <MappingFragment StoreEntitySet="Project">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -90,7 +98,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Softwares">
+          <EntitySetMapping Name="Software">
             <EntityTypeMapping TypeName="CVE_VulnModel.Software">
               <MappingFragment StoreEntitySet="Software">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -100,13 +108,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vulnerabilities">
-            <EntityTypeMapping TypeName="CVE_VulnModel.Vulnerability">
+            <EntityTypeMapping TypeName="CVE_VulnModel.Vulnerabilities">
               <MappingFragment StoreEntitySet="Vulnerabilities">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="softwareName" ColumnName="softwareName" />
-                <ScalarProperty Name="vuln_Description" ColumnName="vuln_Description" />
-                <ScalarProperty Name="score" ColumnName="score" />
                 <ScalarProperty Name="cve_id" ColumnName="cve_id" />
+                <ScalarProperty Name="cwe_id" ColumnName="cwe_id" />
+                <ScalarProperty Name="summary" ColumnName="summary" />
+                <ScalarProperty Name="cvss_score" ColumnName="cvss_score" />
+                <ScalarProperty Name="exploit_count" ColumnName="exploit_count" />
+                <ScalarProperty Name="publish_date" ColumnName="publish_date" />
+                <ScalarProperty Name="update_date" ColumnName="update_date" />
+                <ScalarProperty Name="url" ColumnName="url" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -124,8 +136,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

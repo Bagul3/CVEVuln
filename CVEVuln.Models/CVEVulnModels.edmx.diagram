@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b20bc0a7dc4e48dca04130a285f354ce" Name="Diagram1">
+      <Diagram DiagramId="7c80607ce3ee4642acd17fb1bf089dc1" Name="Diagram1">
         <EntityTypeShape EntityType="CVE_VulnModel.Project" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CVE_VulnModel.Software" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CVE_VulnModel.Vulnerability" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CVE_VulnModel.Vulnerabilities" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

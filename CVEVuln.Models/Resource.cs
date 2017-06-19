@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using WebGrease.Css.Extensions;
 
 namespace CVEVuln.Models
 {
-    public class Resource<T>
+    public abstract class Resource
     {
-        private T _value;
+        private readonly List<Link> links = new List<Link>();
 
-        public T Value { get { return _value; } set { _value = value; } }
+        [JsonProperty(Order = 100)]
+        public IEnumerable<Link> Links { get { return links; } }
 
-        public static implicit operator T (Resource<T> value)
+        public void AddLink(Link link)
         {
-            return value.Value;
+            links.Add(link);
         }
 
-        public static implicit operator Resource<T>(T value)
+        public void AddLinks(params Link[] links)
         {
-            return new Resource<T> { Value = value };
+            links.ForEach(link => AddLink(link));
         }
     }
 }

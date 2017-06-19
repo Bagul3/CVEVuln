@@ -8,7 +8,7 @@ namespace CVEApi
     {
         public static ILog Logger { get; } = LogManager.GetCurrentClassLogger();
 
-        protected static T ExecuteSafely<T>(Func<T> func) where T : ApiErrorResult<T>, new()
+        protected static BaseApiResult ExecuteSafely<T>(Func<T> func) where T : BaseApiResult, new()
         {
             try
             {
@@ -17,7 +17,7 @@ namespace CVEApi
             catch (Exception ex)
             {
                 Logger.ErrorAsync(msg => msg(ex.Message), ex);
-                return new T { Reason = CommonApiReasons.InternalError, ErrorMessage = ex.Message };
+                return new ApiErrorResult() { Reason = CommonApiReasons.InternalError, ErrorMessage = ex.Message };
             }
         }
     }

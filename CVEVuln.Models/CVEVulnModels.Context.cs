@@ -25,8 +25,8 @@ namespace CVEVuln.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<Software> Softwares { get; set; }
-        public virtual DbSet<Vulnerability> Vulnerabilities { get; set; }
+        public virtual DbSet<Project> Project { get; set; }
+        public virtual DbSet<Software> Software { get; set; }
+        public virtual DbSet<Vulnerabilities> Vulnerabilities { get; set; }
     }
 }

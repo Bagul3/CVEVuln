@@ -6,11 +6,14 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using Newtonsoft.Json;
 
 namespace CVEVuln.Models
 {
-    public partial class Vulnerability
+    using System;
+    using System.Collections.Generic;
+    using Newtonsoft.Json;
+    
+    public partial class Vulnerabilities : Resource
     {
         public int Id { get; set; }
         [JsonProperty("cve_id")]
@@ -24,9 +27,9 @@ namespace CVEVuln.Models
         [JsonProperty("exploit_count")]
         public string exploit_count { get; set; }
         [JsonProperty("publish_date")]
-        public string publish_date { get; set; }
+        public Nullable<System.DateTime> publish_date { get; set; }
         [JsonProperty("update_date")]
-        public string update_date { get; set; }
+        public Nullable<System.DateTime> update_date { get; set; }
         [JsonProperty("url")]
         public string url { get; set; }
     }

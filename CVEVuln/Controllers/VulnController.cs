@@ -1,16 +1,22 @@
-﻿using CVEApi;
+﻿using System.Linq;
+using CVEApi;
 using System.Web.Http;
+using System.Web.Http.Routing;
+using CVEApi.ApiResults;
+using CVEVuln.Models;
 
 namespace CVEVuln.Controllers
 {
     public class VulnController : ApiController
     {
         
-        public VulnApiResult GetUbuntuVuls()
+        public BaseApiResult GetUbuntuVuls()
         {
-            return _cveDetails.GetUbuntuVulnerability();
+            var response = _cveDetails.GetUbuntuVulnerability() as VulnsApiResults;
+            response.Vulnerabilities.ElementAt(0).AddLink(new SelfLink(Url.Link("DefaultApi", new { controller = "Vuln" })));
+            return response;
         }
 
-        private CveDetailsApi _cveDetails = new CveDetailsApi();
+        private readonly CveDetailsApi _cveDetails = new CveDetailsApi();
     }
 }
