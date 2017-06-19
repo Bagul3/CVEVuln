@@ -12,9 +12,14 @@ namespace CVEVuln.Controllers
         
         public BaseApiResult GetUbuntuVuls()
         {
-            var response = _cveDetails.GetUbuntuVulnerability() as VulnsApiResults;
-            response.Vulnerabilities.ElementAt(0).AddLink(new SelfLink(Url.Link("DefaultApi", new { controller = "Vuln" })));
+            var response = _cveDetails.GetUbuntuVulnerabilities();
+            response.AddLink(new SelfLink(Url.Link("DefaultApi", new { controller = "Vuln" })));
             return response;
+        }
+
+        public BaseApiResult GetUbuntuVul(int id)
+        {
+            
         }
 
         private readonly CveDetailsApi _cveDetails = new CveDetailsApi();

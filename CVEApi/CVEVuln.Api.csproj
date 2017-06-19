@@ -62,9 +62,10 @@
   <ItemGroup>
     <Compile Include="ApiBase.cs" />
     <Compile Include="ApiResults\ApiErrorResult.cs" />
-    <Compile Include="ApiResults\VulnsApiResults.cs" />
+    <Compile Include="ApiResults\VulnerabilitiesApiResults.cs" />
     <Compile Include="ApiResults\BaseApiResult.cs" />
     <Compile Include="ApiResults\CommonApiReasons.cs" />
+    <Compile Include="ApiResults\VulnerabilityApiResults.cs" />
     <Compile Include="CveDetailsApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

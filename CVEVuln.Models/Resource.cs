@@ -10,7 +10,7 @@ namespace CVEVuln.Models
 {
     public abstract class Resource
     {
-        private readonly List<Link> links = new List<Link>();
+        private List<Link> links = new List<Link>();
 
         [JsonProperty(Order = 100)]
         public IEnumerable<Link> Links { get { return links; } }

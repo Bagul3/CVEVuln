@@ -1,30 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Web.Http.Routing;
+﻿using System.Linq;
+using System.Runtime.CompilerServices;
 using CVEApi.ApiResults;
-using CVEVuln.Models;
 using CVEVulnService;
-using Newtonsoft.Json;
 
 
 namespace CVEApi
 {
     public class CveDetailsApi : ApiBase 
     {
-        public BaseApiResult GetUbuntuVulnerability()
+        public CveDetailsApi()
+        {
+            _service = new VulnService(Url);
+        }
+
+        public BaseApiResult GetUbuntuVulnerabilities()
         {
             return ExecuteSafely(() =>
             {
-                var vulns = Service.GetUbuntuVuls();
-                return vulns.Result.Count() != 0 ? (BaseApiResult) new VulnsApiResults { IsSuccess = true, Message = "Vulnerabilities for Ubuntu", SoftwareName = "Ubuntu", Vulnerabilities = vulns.Result } :
+                var vulns = _service.GetUbuntuVuls();
+                return vulns.Result.Count() != 0 ? (BaseApiResult) new VulnerabilitiesApiResults { IsSuccess = true, Message = "Vulnerabilities for Ubuntu", SoftwareName = "Ubuntu", Vulnerabilities = vulns.Result } :
                     new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" }; ;
             });
         }
 
-        private static readonly VulnService Service = new VulnService();
+        public BaseApiResult GetUbuntuVulnerability(int id)
+        {
+            return ExecuteSafely(() =>
+            {
+                var vulns = _service.GetUbuntuVuls();
+                return vulns.Result.Count() != 0 ? (BaseApiResult)new VulnerabilitiesApiResults { IsSuccess = true, Message = "Vulnerabilities for Ubuntu", SoftwareName = "Ubuntu", Vulnerabilities = vulns.Result } :
+                    new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" }; ;
+            });
+        }
+
+        private readonly VulnService _service;
     }
 }

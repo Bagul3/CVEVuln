@@ -80,6 +80,7 @@
       <DependentUpon>CveVulnModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefLink.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="SelfLink.cs" />
     <Compile Include="Software.cs">

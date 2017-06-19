@@ -7,7 +7,7 @@ using CVEVuln.Models;
 
 namespace CVEApi.ApiResults
 {
-    public class VulnsApiResults : BaseApiResult
+    public class VulnerabilitiesApiResults : BaseApiResult
     {
         public string SoftwareName { get; internal set; }
 
