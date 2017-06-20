@@ -12,7 +12,6 @@ namespace CVEVuln.Models
     using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
-    
     public partial class Vulnerabilities : Resource
     {
         public int Id { get; set; }

@@ -60,6 +60,10 @@
     <Compile Include="VulnService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CVEVuln.Extensions\CVEVuln.Extensions.csproj">
+      <Project>{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}</Project>
+      <Name>CVEVuln.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CVEVuln.Models\CVEVuln.Models.csproj">
       <Project>{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}</Project>
       <Name>CVEVuln.Models</Name>

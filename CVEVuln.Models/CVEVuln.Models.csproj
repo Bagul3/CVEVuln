@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CveEndpoints.cs" />
     <Compile Include="CveVulnModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CVEVuln.Extensions\CVEVuln.Extensions.csproj">
+      <Project>{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}</Project>
+      <Name>CVEVuln.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CveVulnModels.Context.tt">

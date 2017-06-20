@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Validation;
 using Common.Logging;
 
 namespace CVEApi

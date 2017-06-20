@@ -29,7 +29,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cve_id" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="cwe_id" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="summary" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="summary" Type="varchar(max)" Nullable="false" />
           <Property Name="cvss_score" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="exploit_count" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="publish_date" Type="datetime" />
@@ -70,7 +70,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cve_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cwe_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="summary" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cvss_score" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="exploit_count" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="publish_date" Type="DateTime" Precision="3" />

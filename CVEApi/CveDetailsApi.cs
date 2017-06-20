@@ -14,25 +14,23 @@ namespace CVEApi
             _service = new VulnService();
         }
 
-        public BaseApiResult GetUbuntuVulnerabilities(UrlHelper url)
+        public BaseApiResult GetVulnerabilities(UrlHelper url, string service)
         {
             return ExecuteSafely(() =>
             {
-                var vulns = _service.GetUbuntuVuls(url);
-                return vulns.Result.Count() != 0 ? (BaseApiResult) new VulnerabilitiesApiResults { IsSuccess = true, Message = "Vulnerabilities for Ubuntu", SoftwareName = "Ubuntu", Vulnerabilities = vulns.Result } :
+                var vulns = _service.GetVulnerabilities(url, service);
+                return vulns.Result.Count() != 0 ? (BaseApiResult) new VulnerabilitiesApiResults { IsSuccess = true, Message = "Vulnerabilities for {service}", SoftwareName = service, Vulnerabilities = vulns.Result } :
                     new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" };
             });
-
-
         }
 
-        public BaseApiResult GetUbuntuVulnerability(UrlHelper url, int id)
+        public BaseApiResult GetVulnerability(UrlHelper url, int id)
         {
             return ExecuteSafely(() =>
             {
-                var vulns = _service.GetUbuntuVul(url, id);
-                return vulns != null ? (BaseApiResult)new VulnerabilityApiResults { IsSuccess = true, Message = "Vulnerability for Ubuntu " + id, SoftwareName = "Ubuntu", Vulnerability = vulns } :
-                    new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" }; ;
+                var vulns = _service.GetVulnerability(url, id);
+                return vulns != null ? (BaseApiResult)new VulnerabilityApiResults { IsSuccess = true, Message = "Vulnerability id {id}", SoftwareName = "", Vulnerability = vulns } :
+                    new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" };
             });
         }
 
