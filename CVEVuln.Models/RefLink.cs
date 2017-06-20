@@ -10,7 +10,7 @@ namespace CVEVuln.Models
     {
         public const string Relation = "ref";
 
-        public RefLink(string href, string title = null) : base(Relation, href, title)
+        public RefLink(string href) : base(Relation, href)
         {
         }
     }

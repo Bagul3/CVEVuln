@@ -9,9 +9,9 @@ namespace CVEApi
 
         public string Message { get; internal set; }
 
-        public static BaseApiResult Create(string message, bool isSuccess, Link link)
+        public static BaseApiResult Create(string message, bool isSuccess)
         {
-            return new BaseApiResult { IsSuccess = isSuccess, Message = message, Links = new List<Link>() { link } };
+            return new BaseApiResult { IsSuccess = isSuccess, Message = message };
         }
     }
 }

@@ -8,18 +8,13 @@ namespace CVEVuln.Models
 {
     public abstract class Link
     {
-        public string Rel { get; private set; }
-        public string Href { get; private set; }
-        public string Title { get; private set; }
+        public string Rel { get; }
+        public string Href { get; }
 
-        public Link(string relation, string href, string title = null)
+        protected Link(string relation, string href)
         {
-            String.IsNullOrEmpty(relation);
-            String.IsNullOrEmpty(href);
-
             Rel = relation;
             Href = href;
-            Title = title;
         }
     }
 }

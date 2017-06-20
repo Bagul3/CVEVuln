@@ -90,6 +90,7 @@
       <DependentUpon>CveVulnModels.tt</DependentUpon>
     </Compile>
     <Compile Include="VulnerabilitiesResource.cs" />
+    <Compile Include="Vulnerability.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
