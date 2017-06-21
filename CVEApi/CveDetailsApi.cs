@@ -29,7 +29,7 @@ namespace CVEApi
             return ExecuteSafely(() =>
             {
                 var vulns = _service.GetVulnerability(url, id);
-                return vulns != null ? (BaseApiResult)new VulnerabilityApiResults { IsSuccess = true, Message = "Vulnerability id {id}", SoftwareName = "", Vulnerability = vulns } :
+                return vulns != null ? (BaseApiResult)new VulnerabilityApiResults { IsSuccess = true, Message = "Vulnerability id {id}", SoftwareName = url.Request.Content.ToString(), Vulnerability = vulns } :
                     new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" };
             });
         }

@@ -12,7 +12,6 @@ namespace CVEVulnService
 {
     public class VulnService : BaseService
     {
-        //CveEndpoints.Ubuntu.GetStringValue()
         public async Task<List<Vulnerabilities>> GetVulnerabilities(UrlHelper url, string service)
         {
             var serviceType = (CveEndpoints) System.Enum.Parse(typeof(CveEndpoints), service);
