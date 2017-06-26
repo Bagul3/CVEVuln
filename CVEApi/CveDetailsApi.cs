@@ -1,39 +1,41 @@
-﻿using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Threading.Tasks;
 using System.Web.Http.Routing;
 using CVEApi.ApiResults;
 using CVEVulnService;
-
 
 namespace CVEApi
 {
     public class CveDetailsApi : ApiBase 
     {
+        private readonly VulnService service;
+
         public CveDetailsApi()
         {
-            _service = new VulnService();
+            this.service = new VulnService();
         }
 
-        public BaseApiResult GetVulnerabilities(UrlHelper url, string service)
+        public async Task<BaseApiResult> GetVulnerabilities(UrlHelper url, string extService)
         {
-            return ExecuteSafely(() =>
-            {
-                var vulns = _service.GetVulnerabilities(url, service);
-                return vulns.Result.Count() != 0 ? (BaseApiResult) new VulnerabilitiesApiResults { IsSuccess = true, Message = "Vulnerabilities for {service}", SoftwareName = service, Vulnerabilities = vulns.Result } :
-                    new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" };
-            });
+            var vulns = await this.service.GetVulnerabilities(url, extService);
+            return ExecuteSafely(() => new VulnerabilitiesApiResults
+                                           {
+                                               IsSuccess = true,
+                                               Message = "Vulnerabilities for {extService}",
+                                               SoftwareName = extService,
+                                               Vulnerabilities = vulns
+                                           });
         }
 
-        public BaseApiResult GetVulnerability(UrlHelper url, int id)
+        public async Task<BaseApiResult> GetVulnerability(UrlHelper url, int id)
         {
-            return ExecuteSafely(() =>
-            {
-                var vulns = _service.GetVulnerability(url, id);
-                return vulns != null ? (BaseApiResult)new VulnerabilityApiResults { IsSuccess = true, Message = "Vulnerability id {id}", SoftwareName = url.Request.Content.ToString(), Vulnerability = vulns } :
-                    new ApiErrorResult { Reason = CommonApiReasons.InternalError, ErrorMessage = "No Vulnerabilities where found" };
-            });
+                var vulns = await this.service.GetVulnerability(url, id);
+                return ExecuteSafely(() => new VulnerabilityApiResults
+                                               {
+                                                   IsSuccess = true,
+                                                   Message = "Vulnerability " + vulns.cve_id,
+                                                   SoftwareName = "Name",
+                                                   Vulnerability = vulns
+                                               });
         }
-
-        private readonly VulnService _service;
     }
 }

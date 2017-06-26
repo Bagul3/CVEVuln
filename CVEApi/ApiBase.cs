@@ -4,11 +4,13 @@ using Common.Logging;
 
 namespace CVEApi
 {
+    using System.Threading.Tasks;
+
     public class ApiBase
     {
         public static ILog Logger { get; } = LogManager.GetCurrentClassLogger();
 
-        protected static BaseApiResult ExecuteSafely<T>(Func<T> func) where T : BaseApiResult, new()
+        protected static BaseApiResult ExecuteSafely<T>(Func<T> func) where T : BaseApiResult
         {
             try
             {
