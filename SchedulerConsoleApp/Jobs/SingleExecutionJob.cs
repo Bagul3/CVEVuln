@@ -9,7 +9,7 @@ namespace SchedulerConsoleApp.Jobs
     /// <summary>
     /// A simple job which is executed only once.
     /// </summary>
-    class SimgleExecutionJob : Job
+    public class SingleExecutionJob : Job
     {
         /// <summary>
         /// Get the Job Name, which reflects the class name.
