@@ -1,7 +1,0 @@
-C:\Users\cshannon\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\bin\Debug\SchedulerManager.dll
-C:\Users\cshannon\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\bin\Debug\SchedulerManager.pdb
-C:\Users\cshannon\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\bin\Debug\log4net.dll
-C:\Users\cshannon\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\bin\Debug\log4net.xml
-C:\Users\cshannon\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\obj\Debug\SchedulerManager.csprojResolveAssemblyReference.cache
-C:\Users\cshannon\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\obj\Debug\SchedulerManager.dll
-C:\Users\cshannon\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\obj\Debug\SchedulerManager.pdb

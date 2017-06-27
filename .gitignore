@@ -13,7 +13,7 @@ Scheduler/obj/
 packages/
 CVEVulnService/bin/
 CVEVulnService/obj/
-SchedulerConsoleApp/bin
-SchedulerConsoleApp/obj
-SchedulerManager/bin
-SchedulerManager/obj
+CVEVulnSchedulerManager/obj/
+CVEVulnSchedulerManager/bin/
+CVEVulnSchedulerConsoleApp/bin/
+CVEVulnSchedulerConsoleApp/obj/
