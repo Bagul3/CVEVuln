@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using CVEVulnSchedulerManager.Mechanism;
 
 namespace CVEVulnSchedulerConsoleApp
 {
-    class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-            new JobManager().ExecuteAllJobs();
+            Start();
+        }
+
+        private static void Start()
+        {
+            var jobManager = new JobManager();
+            jobManager.ExecuteAllJobs();
         }
     }
 }

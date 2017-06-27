@@ -10,17 +10,17 @@ namespace CVEVulnSchedulerManager.Mechanism
 
     public abstract class Job
     {
-        public void ExecuteJob()
+        public async Task ExecuteJob()
         {
             if (this.IsRepeatable())
             {
                 while (true)
                 {
-                    this.DoJob();
+                    await this.DoJob();
                     Thread.Sleep(this.GetRepetitionIntervalTime());
                 }
             }
-            this.DoJob();
+            await this.DoJob();
         }
 
         public virtual object GetParameters()
@@ -32,7 +32,7 @@ namespace CVEVulnSchedulerManager.Mechanism
 
         public abstract string GetName();
 
-        public abstract void DoJob();
+        public abstract Task DoJob();
 
         public abstract bool IsRepeatable();
 

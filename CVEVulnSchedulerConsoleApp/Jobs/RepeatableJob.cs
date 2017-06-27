@@ -3,7 +3,9 @@ using CVEVulnSchedulerManager.Mechanism;
 
 namespace CVEVulnSchedulerConsoleApp.Jobs
 {
-    public class RepeatableJob : Job
+    using System.Threading.Tasks;
+
+    /*public class RepeatableJob : Job
     {
         private int counter;
 
@@ -12,7 +14,7 @@ namespace CVEVulnSchedulerConsoleApp.Jobs
             return this.GetType().Name;
         }
 
-        public override void DoJob()
+        public override async Task DoJob()
         {
             Console.WriteLine($"This is the execution number \"{this.counter.ToString()}\" of the Job \"{this.GetName()}\".");
             this.counter++;
@@ -32,5 +34,5 @@ namespace CVEVulnSchedulerConsoleApp.Jobs
         {
             return 1000;
         }
-    }
+    }*/
 }

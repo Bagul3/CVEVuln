@@ -33,13 +33,12 @@ namespace CVEVulnService
         }
         
         // Refactor
-        public void InsertVulnerabilities(string service)
+        public async Task InsertVulnerabilities(string service)
         {
             var serviceType = (CveEndpoints)System.Enum.Parse(typeof(CveEndpoints), service);
-
-            var stringTask = Client.GetByteArrayAsync(serviceType.GetStringValue()).Result;
+            var stringTask = this.Client.GetByteArrayAsync(serviceType.GetStringValue()).Result;
             var vulns = JsonConvert.DeserializeObject<List<Vulnerabilities>>(Encoding.UTF8.GetString(stringTask));
-            this.repository.InsertVulnerabilities(vulns);
+            await this.repository.InsertVulnerabilities(vulns);
         }
 
         public async Task<Vulnerabilities> GetVulnerability(UrlHelper url, int id)

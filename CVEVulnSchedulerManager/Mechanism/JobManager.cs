@@ -23,7 +23,7 @@ namespace CVEVulnSchedulerManager.Mechanism
                    && testType.IsInterface == false;
         }
 
-        public void ExecuteAllJobs()
+        public async Task ExecuteAllJobs()
         {
             this.log.Debug("Begin Method");
 
@@ -40,8 +40,7 @@ namespace CVEVulnSchedulerManager.Mechanism
                             {
                                 var instanceJob = (Job)Activator.CreateInstance(job);
                                 this.log.Debug($"The Job \"{instanceJob.GetName()}\" has been instantiated successfully.");
-                                var thread = new Thread(instanceJob.ExecuteJob);
-                                thread.Start();
+                                await Task.Factory.StartNew(() => instanceJob.ExecuteJob());
                                 this.log.Debug($"The Job \"{instanceJob.GetName()}\" has its thread started successfully.");
                             }
                             catch (Exception ex)
