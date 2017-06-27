@@ -1,12 +1,11 @@
-﻿using CVEVuln.Models;
-using CVEVulnDA;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http.Routing;
 using CVEVuln.Extensions;
+using CVEVuln.Models;
+using CVEVulnDA;
+using Newtonsoft.Json;
 
 namespace CVEVulnService
 {
@@ -32,11 +31,20 @@ namespace CVEVulnService
             vul.ForEach(vulnerabilities => this.Enrich(vulnerabilities, url));
             return vul;
         }
+        
+        // Refactor
+        public void InsertVulnerabilities(string service)
+        {
+            var serviceType = (CveEndpoints)System.Enum.Parse(typeof(CveEndpoints), service);
+
+            var stringTask = Client.GetByteArrayAsync(serviceType.GetStringValue()).Result;
+            var vulns = JsonConvert.DeserializeObject<List<Vulnerabilities>>(Encoding.UTF8.GetString(stringTask));
+            this.repository.InsertVulnerabilities(vulns);
+        }
 
         public async Task<Vulnerabilities> GetVulnerability(UrlHelper url, int id)
         {
-            var vuln = await this.repository.FindBy(x => x.Id == id).FirstAsync();
-            return vuln;
+            return await this.repository.GetVulnerability(id);
         }
 
         private void Enrich(Vulnerabilities vulnerabilities, UrlHelper url)

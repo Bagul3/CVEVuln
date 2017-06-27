@@ -1,0 +1,11 @@
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\SchedulerManager.dll.config
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\SchedulerManager.dll
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\SchedulerManager.pdb
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\EntityFramework.dll
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\log4net.dll
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\EntityFramework.xml
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\bin\Debug\log4net.xml
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\obj\Debug\SchedulerManager.dll
+C:\Users\cshannon\CVEVulns\CVEVuln.bak\CVEVulnSchedulerManager\obj\Debug\SchedulerManager.pdb

@@ -74,7 +74,6 @@
     <Compile Include="ApiResults\CommonApiReasons.cs" />
     <Compile Include="ApiResults\VulnerabilityApiResults.cs" />
     <Compile Include="CveDetailsApi.cs" />
-    <Compile Include="CveEndpoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

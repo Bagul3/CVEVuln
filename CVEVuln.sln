@@ -15,9 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.Models", "CVEVuln.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.Extensions", "CVEVuln.Extensions\CVEVuln.Extensions.csproj", "{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerManager", "..\..\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerManager\SchedulerManager.csproj", "{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.SchedulerConsoleApp", "CVEVulnSchedulerConsoleApp\CVEVuln.SchedulerConsoleApp.csproj", "{35576040-45A9-44C2-A8A7-C29FBF6C4E75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerConsoleApp", "..\..\Downloads\SchedulerManager-noexe-noexe\SchedulerManager-noexe\SchedulerConsoleApp\SchedulerConsoleApp.csproj", "{35576040-45A9-44C2-A8A7-C29FBF6C4E75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVEVuln.SchedulerManager", "CVEVulnSchedulerManager\CVEVuln.SchedulerManager.csproj", "{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +75,12 @@ Global
 		{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}.Release|x86.ActiveCfg = Release|Any CPU
 		{5BA9A981-DE33-41B7-9BD1-AF15291D03E9}.Release|x86.Build.0 = Release|Any CPU
+		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Debug|x86.ActiveCfg = Debug|x86
+		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Debug|x86.Build.0 = Debug|x86
+		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Release|Any CPU.ActiveCfg = Release|x86
+		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Release|x86.ActiveCfg = Release|x86
+		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Release|x86.Build.0 = Release|x86
 		{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -83,12 +89,6 @@ Global
 		{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}.Release|x86.ActiveCfg = Release|Any CPU
 		{FC82EAB5-3E3A-4EC6-AEB7-C1E3707F6483}.Release|x86.Build.0 = Release|Any CPU
-		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Debug|x86.ActiveCfg = Debug|x86
-		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Debug|x86.Build.0 = Debug|x86
-		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Release|Any CPU.ActiveCfg = Release|x86
-		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Release|x86.ActiveCfg = Release|x86
-		{35576040-45A9-44C2-A8A7-C29FBF6C4E75}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
