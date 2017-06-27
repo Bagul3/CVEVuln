@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CVEVulnSchedulerConsoleApp
+namespace CVEVulnSchedulerManager
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            new JobManager().ExecuteAllJobs();
         }
     }
 }

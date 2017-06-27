@@ -1,7 +1,13 @@
-﻿using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SchedulerManager.Mechanism
+namespace CVEVulnSchedulerManager.Mechanism
 {
+    using System.Threading;
+
     public abstract class Job
     {
         public void ExecuteJob()
@@ -16,20 +22,20 @@ namespace SchedulerManager.Mechanism
             }
             this.DoJob();
         }
-        
+
         public virtual object GetParameters()
         {
             return null;
         }
 
         public abstract string GetEndpoint();
-        
+
         public abstract string GetName();
-        
+
         public abstract void DoJob();
-        
+
         public abstract bool IsRepeatable();
-        
+
         public abstract int GetRepetitionIntervalTime();
     }
 }

@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SchedulerManager.Log4Net
+namespace CVEVulnSchedulerManager.Log4Net
 {
-    /// <summary>
-    /// Constants for Log4Net
-    /// </summary>
     public class Log4NetConstants
     {
         /// <summary>

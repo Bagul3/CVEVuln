@@ -1,13 +1,12 @@
-﻿/*
-using System;
-using SchedulerManager.Mechanism;
+﻿using System;
+using CVEVulnSchedulerManager.Mechanism;
 
-namespace SchedulerConsoleApp.Jobs
+namespace CVEVulnSchedulerConsoleApp.Jobs
 {
     public class RepeatableJob : Job
     {
         private int counter;
-        
+
         public override string GetName()
         {
             return this.GetType().Name;
@@ -35,4 +34,3 @@ namespace SchedulerConsoleApp.Jobs
         }
     }
 }
-*/

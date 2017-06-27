@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using log4net;
-using SchedulerManager.Log4Net;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SchedulerManager.Mechanism
+namespace CVEVulnSchedulerManager.Mechanism
 {
+    using System.Threading;
+
+    using CVEVulnSchedulerManager.Log4Net;
+
+    using log4net;
+
     public class JobManager
     {
         private readonly ILog log = LogManager.GetLogger(Log4NetConstants.SCHEDULER_LOGGER);

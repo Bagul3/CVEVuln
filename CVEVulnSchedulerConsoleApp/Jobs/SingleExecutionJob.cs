@@ -1,28 +1,25 @@
 ﻿using System;
-using CVEVuln.Extensions;
-using CVEVuln.Models;
-using SchedulerManager.Mechanism;
+using CVEVulnSchedulerManager.Mechanism;
+using CVEVulnService;
 
-namespace SchedulerConsoleApp.Jobs
+namespace CVEVulnSchedulerConsoleApp.Jobs
 {
-    using CVEVulnService;
-
     public class SingleExecutionJob : Job
     {
-        
+
         private readonly VulnService service = new VulnService();
 
         public override string GetName()
         {
             return this.GetType().Name;
         }
-        
+
         public override void DoJob()
         {
             Console.WriteLine($"The Job \"{this.GetName()}\" was executed.");
             this.service.InsertVulnerabilities(this.GetEndpoint());
         }
-        
+
         public override bool IsRepeatable()
         {
             return false;
