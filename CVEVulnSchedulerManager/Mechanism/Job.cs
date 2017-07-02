@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CVEVulnSchedulerManager.Mechanism
+﻿namespace CVEVulnSchedulerManager.Mechanism
 {
     using System.Threading;
 
     public abstract class Job
     {
-        public async Task ExecuteJob()
+        public void ExecuteJob()
         {
             if (this.IsRepeatable())
             {
                 while (true)
                 {
-                    await this.DoJob();
+                    this.DoJob();
                     Thread.Sleep(this.GetRepetitionIntervalTime());
                 }
             }
-            await this.DoJob();
+            this.DoJob();
         }
 
         public virtual object GetParameters()
@@ -32,7 +26,7 @@ namespace CVEVulnSchedulerManager.Mechanism
 
         public abstract string GetName();
 
-        public abstract Task DoJob();
+        public abstract void DoJob();
 
         public abstract bool IsRepeatable();
 

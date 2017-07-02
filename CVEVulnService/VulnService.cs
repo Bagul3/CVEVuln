@@ -38,6 +38,7 @@ namespace CVEVulnService
             var serviceType = (CveEndpoints)System.Enum.Parse(typeof(CveEndpoints), service);
             var stringTask = this.Client.GetByteArrayAsync(serviceType.GetStringValue()).Result;
             var vulns = JsonConvert.DeserializeObject<List<Vulnerabilities>>(Encoding.UTF8.GetString(stringTask));
+            vulns.ForEach(vulnerabilities => this.EnrichServiceType(vulnerabilities, service));
             await this.repository.InsertVulnerabilities(vulns);
         }
 
@@ -49,6 +50,11 @@ namespace CVEVulnService
         private void Enrich(Vulnerabilities vulnerabilities, UrlHelper url)
         {
             vulnerabilities.AddLink(new RefLink(url.Link("DefaultApi", new { controller = "Vuln", id = vulnerabilities.Id })));
+        }
+
+        private void EnrichServiceType(Vulnerabilities vulnerabilities, string service)
+        {
+            vulnerabilities.service = service;
         }
     }
 }

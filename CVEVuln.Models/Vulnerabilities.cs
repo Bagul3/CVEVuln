@@ -30,5 +30,7 @@ namespace CVEVuln.Models
         public Nullable<System.DateTime> update_date { get; set; }
         [JsonProperty("url")]
         public string url { get; set; }
+
+        public string service { get; set; }
     }
 }

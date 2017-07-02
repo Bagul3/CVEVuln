@@ -4,8 +4,6 @@ using CVEVulnService;
 
 namespace CVEVulnSchedulerConsoleApp.Jobs
 {
-    using System.Threading.Tasks;
-
     public class SingleExecutionJob : Job
     {
 
@@ -16,10 +14,10 @@ namespace CVEVulnSchedulerConsoleApp.Jobs
             return this.GetType().Name;
         }
 
-        public override async Task DoJob()
+        public override void DoJob()
         {
             Console.WriteLine($"The Job \"{this.GetName()}\" was executed.");
-            await this.service.InsertVulnerabilities(this.GetEndpoint());
+            this.service.InsertVulnerabilities(this.GetEndpoint()).Wait();
         }
 
         public override bool IsRepeatable()
