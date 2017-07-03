@@ -50,10 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Jobs\RepeatableJob.cs" />
-    <Compile Include="Jobs\DebianJob.cs" />
-    <Compile Include="Jobs\McAfeeJob.cs" />
-    <Compile Include="Jobs\UbuntuJob.cs" />
-    <Compile Include="Jobs\WindowsServer2012Job.cs" />
+    <Compile Include="Jobs\SingleExecutionJob.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,9 +67,9 @@
       <Project>{1249a56c-bf7b-463b-a2ba-d5caf2c79736}</Project>
       <Name>CVEVuln.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CVEVulnSchedulerManager\CVEVulnSchedulerManager.csproj">
+    <ProjectReference Include="..\CVEVulnSchedulerManager\CVEVuln.Scheduler.Manager.csproj">
       <Project>{b8639dcd-c779-42d2-bbc3-a020ea99685b}</Project>
-      <Name>CVEVulnSchedulerManager</Name>
+      <Name>CVEVuln.Scheduler.Manager</Name>
     </ProjectReference>
     <ProjectReference Include="..\CVEVulnService\CVEVuln.Service.csproj">
       <Project>{6b330d52-78c4-4113-a698-ff26f11fa29d}</Project>

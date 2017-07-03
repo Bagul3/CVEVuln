@@ -22,14 +22,9 @@ namespace CVEVulnService
 
         public async Task<List<Vulnerabilities>> GetVulnerabilities(UrlHelper url, string service)
         {
-            var serviceType = (CveEndpoints)System.Enum.Parse(typeof(CveEndpoints), service);
-
-            var stringTask = await this.Client.GetByteArrayAsync(serviceType.GetStringValue());
-            var vulns = JsonConvert.DeserializeObject<List<Vulnerabilities>>(Encoding.UTF8.GetString(stringTask));
-
-            var vul = await this.repository.SaveList(vulns);
-            vul.ForEach(vulnerabilities => this.Enrich(vulnerabilities, url));
-            return vul;
+            var vuls = await this.repository.GetVulnerabilitiesByServiceName(service);
+            vuls.ForEach(vulnerabilities => this.Enrich(vulnerabilities, url));
+            return vuls;
         }
         
         // Refactor
@@ -38,7 +33,7 @@ namespace CVEVulnService
             var serviceType = (CveEndpoints)System.Enum.Parse(typeof(CveEndpoints), service);
             var stringTask = this.Client.GetByteArrayAsync(serviceType.GetStringValue()).Result;
             var vulns = JsonConvert.DeserializeObject<List<Vulnerabilities>>(Encoding.UTF8.GetString(stringTask));
-            vulns.ForEach(vulnerabilities => this.EnrichServiceType(vulnerabilities, service));
+            vulns.ForEach(vulnerabilities => EnrichServiceType(vulnerabilities, service));
             await this.repository.InsertVulnerabilities(vulns);
         }
 
@@ -47,14 +42,14 @@ namespace CVEVulnService
             return await this.repository.GetVulnerability(id);
         }
 
+        private static void EnrichServiceType(Vulnerabilities vulnerabilities, string service)
+        {
+            vulnerabilities.service = service;
+        }
+
         private void Enrich(Vulnerabilities vulnerabilities, UrlHelper url)
         {
             vulnerabilities.AddLink(new RefLink(url.Link("DefaultApi", new { controller = "Vuln", id = vulnerabilities.Id })));
-        }
-
-        private void EnrichServiceType(Vulnerabilities vulnerabilities, string service)
-        {
-            vulnerabilities.service = service;
         }
     }
 }

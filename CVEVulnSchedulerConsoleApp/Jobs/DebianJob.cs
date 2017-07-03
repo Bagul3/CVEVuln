@@ -4,7 +4,7 @@ using CVEVulnService;
 
 namespace CVEVulnSchedulerConsoleApp.Jobs
 {
-    public class SingleExecutionJob : Job
+    public class DebianJob : Job
     {
 
         private readonly VulnService service = new VulnService();
@@ -16,7 +16,7 @@ namespace CVEVulnSchedulerConsoleApp.Jobs
 
         public override void DoJob()
         {
-            Console.WriteLine($"The Job \"{this.GetName()}\" was executed.");
+            Console.WriteLine($"The Job \"{this.GetEndpoint()}\" was executed.");
             this.service.InsertVulnerabilities(this.GetEndpoint()).Wait();
         }
 
@@ -27,7 +27,7 @@ namespace CVEVulnSchedulerConsoleApp.Jobs
 
         public override string GetEndpoint()
         {
-            return "WindowsServer2012";
+            return "Debian";
         }
 
         public override int GetRepetitionIntervalTime()

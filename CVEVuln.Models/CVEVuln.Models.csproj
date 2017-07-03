@@ -60,47 +60,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CveEndpoints.cs" />
-    <Compile Include="CveVulnModels.Context.cs">
+    <Compile Include="CveModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CveVulnModels.Context.tt</DependentUpon>
+      <DependentUpon>CveModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CveVulnModels.cs">
+    <Compile Include="CveModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CveVulnModels.tt</DependentUpon>
+      <DependentUpon>CveModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="CveVulnModels.Designer.cs">
+    <Compile Include="CveModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CveVulnModels.edmx</DependentUpon>
+      <DependentUpon>CveModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="EditLink.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Project.cs">
-      <DependentUpon>CveVulnModels.tt</DependentUpon>
+      <DependentUpon>CveModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefLink.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="SelfLink.cs" />
     <Compile Include="Software.cs">
-      <DependentUpon>CveVulnModels.tt</DependentUpon>
+      <DependentUpon>CveModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Vulnerabilities.cs">
-      <DependentUpon>CveVulnModels.tt</DependentUpon>
+      <DependentUpon>CveModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="VulnerabilitiesResource.cs" />
-    <Compile Include="Vulnerability.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="CveVulnModels.edmx">
+    <EntityDeploy Include="CveModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CveVulnModels.Designer.cs</LastGenOutput>
+      <LastGenOutput>CveModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CveVulnModels.edmx.diagram">
-      <DependentUpon>CveVulnModels.edmx</DependentUpon>
+    <None Include="CveModels.edmx.diagram">
+      <DependentUpon>CveModels.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -114,15 +112,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CveVulnModels.Context.tt">
+    <Content Include="CveModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CveVulnModels.edmx</DependentUpon>
-      <LastGenOutput>CveVulnModels.Context.cs</LastGenOutput>
+      <DependentUpon>CveModels.edmx</DependentUpon>
+      <LastGenOutput>CveModels.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CveVulnModels.tt">
+    <Content Include="CveModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CveVulnModels.edmx</DependentUpon>
-      <LastGenOutput>CveVulnModels.cs</LastGenOutput>
+      <DependentUpon>CveModels.edmx</DependentUpon>
+      <LastGenOutput>CveModels.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

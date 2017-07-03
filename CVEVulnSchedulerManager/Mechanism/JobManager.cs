@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+using CVEVulnSchedulerManager.Log4Net;
+using log4net;
 
 namespace CVEVulnSchedulerManager.Mechanism
 {
-    using System.Threading;
-
-    using CVEVulnSchedulerManager.Log4Net;
-
-    using log4net;
-
     public class JobManager
     {
         private readonly ILog log = LogManager.GetLogger(Log4NetConstants.SCHEDULER_LOGGER);
@@ -39,10 +34,10 @@ namespace CVEVulnSchedulerManager.Mechanism
                             try
                             {
                                 var instanceJob = (Job)Activator.CreateInstance(job);
-                                this.log.Debug($"The Job \"{instanceJob.GetName()}\" has been instantiated successfully.");
+                                this.log.Debug($"The Job \"{instanceJob.GetEndpoint()}\" has been instantiated successfully.");
                                 var thread = new Thread(instanceJob.ExecuteJob);
                                 thread.Start();
-                                this.log.Debug($"The Job \"{instanceJob.GetName()}\" has its thread started successfully.");
+                                this.log.Debug($"The Job \"{instanceJob.GetEndpoint()}\" has its thread started successfully.");
                             }
                             catch (Exception ex)
                             {
