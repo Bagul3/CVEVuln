@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using CVEVulnSchedulerManager.Mechanism;
+﻿using CVEVulnSchedulerManager.Mechanism;
 
 namespace CVEVulnSchedulerConsoleApp
 {

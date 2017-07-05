@@ -49,10 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Jobs\RepeatableJob.cs" />
     <Compile Include="Jobs\DebianJob.cs" />
     <Compile Include="Jobs\McAfeeJob.cs" />
     <Compile Include="Jobs\UbuntuJob.cs" />
+    <Compile Include="Jobs\ApacheJob.cs" />
+    <Compile Include="Jobs\RedHatJob.cs" />
+    <Compile Include="Jobs\WindowsServer2008Job.cs" />
+    <Compile Include="Jobs\JavaJdkJob.cs" />
+    <Compile Include="Jobs\JavaJreJob.cs" />
     <Compile Include="Jobs\WindowsServer2012Job.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

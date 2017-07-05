@@ -1,23 +1,23 @@
 ﻿using System;
 using CVEVulnSchedulerManager.Mechanism;
+using CVEVulnService;
 
 namespace CVEVulnSchedulerConsoleApp.Jobs
 {
-    using System.Threading.Tasks;
-
-    /*public class RepeatableJob : Job
+    public class JavaJdkJob : Job
     {
-        private int counter;
+
+        private readonly VulnService service = new VulnService();
 
         public override string GetName()
         {
             return this.GetType().Name;
         }
 
-        public override async Task DoJob()
+        public override void DoJob()
         {
-            Console.WriteLine($"This is the execution number \"{this.counter.ToString()}\" of the Job \"{this.GetName()}\".");
-            this.counter++;
+            Console.WriteLine($"The Job \"{this.GetEndpoint()}\" was executed.");
+            this.service.InsertVulnerabilities(this.GetEndpoint()).Wait();
         }
 
         public override bool IsRepeatable()
@@ -27,12 +27,12 @@ namespace CVEVulnSchedulerConsoleApp.Jobs
 
         public override string GetEndpoint()
         {
-            return this.GetType().Name;
+            return "JavaJdk";
         }
 
         public override int GetRepetitionIntervalTime()
         {
             return 1000;
         }
-    }*/
+    }
 }
