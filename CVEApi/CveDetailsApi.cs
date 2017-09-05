@@ -16,26 +16,25 @@ namespace CVEApi
 
         public async Task<BaseApiResult> GetVulnerabilities(UrlHelper url, string extService)
         {
-            var vulns = await this.service.GetVulnerabilities(url, extService);
-            return ExecuteSafely(() => new VulnerabilitiesApiResults
-                                           {
-                                               IsSuccess = true,
-                                               Message = "Vulnerabilities for {extService}",
-                                               SoftwareName = extService,
-                                               Vulnerabilities = vulns
-                                           });
+            //var vulns = await this.service.GetVulnerabilities(url, extService);
+            return await ExecuteSafely(async () => new VulnerabilitiesApiResults
+            {
+                IsSuccess = true,
+                Message = "Vulnerabilities for {extService}",
+                SoftwareName = extService,
+                Vulnerabilities = await this.service.GetVulnerabilities(url, extService)
+            } as BaseApiResult); 
         }
 
         public async Task<BaseApiResult> GetVulnerability(UrlHelper url, int id)
         {
-                var vulns = await this.service.GetVulnerability(url, id);
-                return ExecuteSafely(() => new VulnerabilityApiResults
-                                               {
-                                                   IsSuccess = true,
-                                                   Message = "Vulnerability " + vulns.cve_id,
-                                                   SoftwareName = "Name",
-                                                   Vulnerability = vulns
-                                               });
+                return await ExecuteSafely(async () => new VulnerabilityApiResults
+                {
+                    IsSuccess = true,
+                    Message = "",
+                    SoftwareName = "Name",
+                    Vulnerability = await this.service.GetVulnerability(url, id)
+                } as BaseApiResult);
         }
     }
 }
