@@ -18,13 +18,8 @@ namespace CVEApi
             catch (Exception ex)
             {
                 Logger.ErrorAsync(msg => msg(ex.Message), ex);
-                return ErrorAsync(ex);
+                return Task.FromResult<BaseApiResult>(new ApiErrorResult() { Reason = CommonApiReasons.InternalError, Message = ex.Message, ErrorMessage = ex.InnerException?.ToString() } );
             }
-        }
-
-        private static async Task<BaseApiResult> ErrorAsync(Exception ex)
-        {
-            return new ApiErrorResult { Reason = CommonApiReasons.InternalError, Message = ex.Message, ErrorMessage = ex.InnerException?.ToString() };
         }
     }
 }
