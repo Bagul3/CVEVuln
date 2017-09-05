@@ -31,7 +31,6 @@ namespace CVEApi
                 return await ExecuteSafely(async () => new VulnerabilityApiResults
                 {
                     IsSuccess = true,
-                    Message = "",
                     SoftwareName = "Name",
                     Vulnerability = await this.service.GetVulnerability(url, id)
                 } as BaseApiResult);

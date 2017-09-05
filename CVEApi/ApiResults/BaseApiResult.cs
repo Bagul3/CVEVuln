@@ -7,7 +7,7 @@ namespace CVEApi
     {
         public bool IsSuccess { get; internal set; }
 
-        public string Message { get; set; }
+        public virtual string Message { get; internal set;  }
 
         public static BaseApiResult Create(string message, bool isSuccess)
         {
