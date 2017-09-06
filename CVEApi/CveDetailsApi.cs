@@ -28,12 +28,12 @@ namespace CVEApi
 
         public async Task<BaseApiResult> GetVulnerability(UrlHelper url, int id)
         {
-                return await ExecuteSafely(async () => new VulnerabilityApiResults
-                {
-                    IsSuccess = true,
-                    SoftwareName = "Name",
-                    Vulnerability = await this.service.GetVulnerability(url, id)
-                } as BaseApiResult);
+            return await ExecuteSafely(async () => new VulnerabilityApiResults
+            {
+                IsSuccess = true,
+                SoftwareName = "Name",
+                Vulnerability = await this.service.GetVulnerability(url, id)
+            } as BaseApiResult);
         }
     }
 }

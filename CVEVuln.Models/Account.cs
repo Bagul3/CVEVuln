@@ -12,10 +12,11 @@ namespace CVEVuln.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Software
+    public partial class Account
     {
-        public int Id { get; set; }
-        public int Software_Id { get; set; }
-        public string Software_Name { get; set; }
+        public int accountId { get; set; }
+        public string username { get; set; }
+        public string surname { get; set; }
+        public string email { get; set; }
     }
 }

@@ -5,22 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="CVE_VulnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Project">
+        <EntityType Name="Account">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="accountId" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="forname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="surname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="project" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="accountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="surname" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="Software">
+        <EntityType Name="Roles">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="roleId" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Software_Id" Type="int" Nullable="false" />
-          <Property Name="Software_Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="nchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Vulnerabilities">
           <Key>
@@ -28,18 +27,18 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cve_id" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="cwe_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cwe_id" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="summary" Type="varchar(max)" Nullable="false" />
-          <Property Name="cvss_score" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="exploit_count" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cvss_score" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exploit_count" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="publish_date" Type="datetime" />
           <Property Name="update_date" Type="datetime" />
-          <Property Name="url" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="service" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="service" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CVE_VulnModelStoreContainer">
-          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Software" EntityType="Self.Software" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerabilities" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -47,22 +46,21 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CVE_VulnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Project">
+        <EntityType Name="Account">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="accountId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="forname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="project1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="Software">
+        <EntityType Name="Roles">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="roleId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Software_Id" Type="Int32" Nullable="false" />
-          <Property Name="Software_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Vulnerabilities">
           <Key>
@@ -70,18 +68,18 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cve_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cwe_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cwe_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cvss_score" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="exploit_count" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cvss_score" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="exploit_count" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="publish_date" Type="DateTime" Precision="3" />
           <Property Name="update_date" Type="DateTime" Precision="3" />
-          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="service" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="service" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CVE_VulnEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Project" EntityType="Self.Project" />
-          <EntitySet Name="Software" EntityType="Self.Software" />
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerabilities" />
         </EntityContainer>
       </Schema>
@@ -90,22 +88,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CVE_VulnModelStoreContainer" CdmEntityContainer="CVE_VulnEntities">
-          <EntitySetMapping Name="Project">
-            <EntityTypeMapping TypeName="CVE_VulnModel.Project">
-              <MappingFragment StoreEntitySet="Project">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="forname" ColumnName="forname" />
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="CVE_VulnModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="accountId" ColumnName="accountId" />
+                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="surname" ColumnName="surname" />
-                <ScalarProperty Name="project1" ColumnName="project" />
+                <ScalarProperty Name="email" ColumnName="email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Software">
-            <EntityTypeMapping TypeName="CVE_VulnModel.Software">
-              <MappingFragment StoreEntitySet="Software">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Software_Id" ColumnName="Software_Id" />
-                <ScalarProperty Name="Software_Name" ColumnName="Software_Name" />
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CVE_VulnModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

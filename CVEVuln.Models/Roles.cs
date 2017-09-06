@@ -12,11 +12,9 @@ namespace CVEVuln.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Project
+    public partial class Roles
     {
-        public int Id { get; set; }
-        public string forname { get; set; }
-        public string surname { get; set; }
-        public string project1 { get; set; }
+        public int roleId { get; set; }
+        public string roleName { get; set; }
     }
 }

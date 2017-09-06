@@ -10,27 +10,19 @@
 namespace CVEVuln.Models
 {
     using System;
-    using Newtonsoft.Json;
+    using System.Collections.Generic;
+    
     public partial class Vulnerabilities : Resource
     {
         public int Id { get; set; }
-        [JsonProperty("cve_id")]
         public string cve_id { get; set; }
-        [JsonProperty("cwe_id")]
         public string cwe_id { get; set; }
-        [JsonProperty("summary")]
         public string summary { get; set; }
-        [JsonProperty("cvss_score")]
         public string cvss_score { get; set; }
-        [JsonProperty("exploit_count")]
         public string exploit_count { get; set; }
-        [JsonProperty("publish_date")]
         public Nullable<System.DateTime> publish_date { get; set; }
-        [JsonProperty("update_date")]
         public Nullable<System.DateTime> update_date { get; set; }
-        [JsonProperty("url")]
         public string url { get; set; }
-
         public string service { get; set; }
     }
 }
