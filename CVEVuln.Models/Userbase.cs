@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CVEVuln.Extensions;
+using System.ComponentModel.DataAnnotations;
 namespace CVEVuln.Models
 {
-    /// <summary>
-    /// This will be removed, going to user model from entity framework
-    /// </summary>
     public class Userbase
     {
         public int UserId { get; set; }
 
+        [Required]
+        [Map("UserName")]
         public string Name { get; set; }
 
         public string Email { get; set; }
+
+        // ToDo: remove this property.
+        [Required]
+        public string Password { get; set; }
     }
 }
