@@ -1,41 +1,24 @@
-﻿using CVEVuln.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Principal;
+using CVEVuln.Models.Resources.User;
 
 namespace CVEVuln.Security
 {
 
     public class UserIdentity : IIdentity
     {
-        private readonly Userbase user;
+        private readonly Userbase _user;
 
         public UserIdentity(Userbase user)
         {
-            this.user = user;
+            this._user = user;
         }
 
-        public string Name
-        {
-            get { return user.Name; }
-        }
+        public string Name => _user.Name;
 
-        public string AuthenticationType
-        {
-            get { return "Forms"; }
-        }
+        public string AuthenticationType => "Forms";
 
-        public bool IsAuthenticated
-        {
-            get { return true; }
-        }
+        public bool IsAuthenticated => true;
 
-        public int Id
-        {
-            get { return user.UserId; }
-        }
+        public int Id => _user.UserId;
     }
 }

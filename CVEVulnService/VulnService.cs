@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using System.Web.Http.Routing;
 using CVEVuln.Extensions;
 using CVEVuln.Models;
+using CVEVuln.Models.Resources.CVE;
+using CVEVuln.Models.Resources.Links;
 using CVEVulnDA;
 using Newtonsoft.Json;
 
@@ -20,7 +22,7 @@ namespace CVEVulnService
             this.repository = new VulnerabilityRepository();
         }
 
-        public async Task<List<Vulnerabilities>> GetVulnerabilities(UrlHelper url, string service)
+        public async Task<List<VulnerabilitiesResource>> GetVulnerabilities(UrlHelper url, string service)
         {
             var vuls = await this.repository.GetVulnerabilitiesByServiceName(service);
             vuls.ForEach(vulnerabilities => this.Enrich(vulnerabilities, url));
@@ -47,9 +49,9 @@ namespace CVEVulnService
             vulnerabilities.service = service;
         }
 
-        private void Enrich(Vulnerabilities vulnerabilities, UrlHelper url)
+        private void Enrich(VulnerabilitiesResource vulnerabilities, UrlHelper url)
         {
-            vulnerabilities.AddLink(new RefLink(url.Link("DefaultApi", new { controller = "Vuln", id = vulnerabilities.Id })));
+            vulnerabilities.AddLink(new RefLink(url.Link("DefaultApi", new { controller = "Vuln", id = vulnerabilities.Vulnerabilities.Id })));
         }
     }
 }

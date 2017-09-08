@@ -12,7 +12,7 @@ namespace CVEVuln.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Vulnerabilities : Resource
+    public partial class Vulnerabilities
     {
         public int Id { get; set; }
         public string cve_id { get; set; }

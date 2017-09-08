@@ -3,6 +3,7 @@ using CVEVuln.Models;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using CVEVuln.Models.Resources.User;
 
 namespace CVEVulnDA
 {

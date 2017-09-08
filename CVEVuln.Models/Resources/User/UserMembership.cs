@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CVEVuln.Models
+namespace CVEVuln.Models.Resources.User
 {
     public class UserMembership : Userbase
     {

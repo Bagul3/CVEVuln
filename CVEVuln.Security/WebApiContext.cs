@@ -1,45 +1,39 @@
 ﻿using CVEVuln.Models;
-using CVEVulnDA;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using CVEVuln.Models.Resources.User;
 
 
 namespace CVEVuln.Security
 {
     public class WebApiContext : FormsAuthenticationContext
     {
-        private static readonly UserRepository userRepository = new UserRepository();
-        private readonly string username;
-        private readonly string password;
-        private readonly HttpRequestMessage request;
-        private readonly HttpResponseMessage response;
-        private readonly AuthenicateMode authenicateMode;
-        
+        private readonly string _username;
+        private readonly string _password;
+        private readonly HttpRequestMessage _request;
+        private readonly HttpResponseMessage _response;
+
         protected internal override UserMembership User { get; set; }
 
         protected internal override string AuthToken { get; set; }
 
         public WebApiContext(HttpRequestMessage request, HttpResponseMessage response)
         {
-            this.request = request ?? new HttpRequestMessage();
-            this.response = response ?? new HttpResponseMessage();
+            this._request = request ?? new HttpRequestMessage();
+            this._response = response ?? new HttpResponseMessage();
         }
 
         public WebApiContext(string username, string password, HttpRequestMessage request, HttpResponseMessage response) : this(request, response)
         {
-            this.username = username;
-            this.password = password;
+            this._username = username;
+            this._password = password;
         }
 
         protected internal override bool Authenicate(out string errorMessage)
         {
-            AuthenicatorBase authenicator = new SqlAuthenicator(username, password);
+            AuthenicatorBase authenicator = new SqlAuthenicator(_username, _password);
             if (authenicator.Authenicate(out errorMessage))
             {
                 User = authenicator.User;
@@ -51,7 +45,7 @@ namespace CVEVuln.Security
         protected internal override void Login()
         {
             AuthToken = this.CreateAuthToken();
-            this.response.Headers.AddCookies(new[] { new CookieHeaderValue(FormCookieName, AuthToken) { HttpOnly = true } });
+            this._response.Headers.AddCookies(new[] { new CookieHeaderValue(FormCookieName, AuthToken) { HttpOnly = true } });
             Thread.CurrentPrincipal = new UserPrincipal(new UserIdentity(User), this);
         }
 
@@ -59,12 +53,5 @@ namespace CVEVuln.Security
         {
             throw new NotImplementedException();
         }
-
-        private enum AuthenicateMode
-        {
-            Password,
-            Token
-        }
-
     }
 }

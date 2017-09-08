@@ -1,6 +1,7 @@
-﻿using CVEVuln.Extensions;
-using System.ComponentModel.DataAnnotations;
-namespace CVEVuln.Models
+﻿using System.ComponentModel.DataAnnotations;
+using CVEVuln.Extensions;
+
+namespace CVEVuln.Models.Resources.User
 {
     public class Userbase
     {

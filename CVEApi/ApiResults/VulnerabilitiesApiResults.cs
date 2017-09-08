@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CVEVuln.Models;
+using CVEVuln.Models.Resources.CVE;
 
 namespace CVEApi.ApiResults
 {
@@ -7,6 +8,6 @@ namespace CVEApi.ApiResults
     {
         public string SoftwareName { get; internal set; }
 
-        public List<Vulnerabilities> Vulnerabilities { get; internal set; }
+        public List<VulnerabilitiesResource> Vulnerabilities { get; internal set; }
     }
 }

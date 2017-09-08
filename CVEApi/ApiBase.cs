@@ -1,5 +1,6 @@
 ﻿using System;
 using Common.Logging;
+using CVEApi.ApiResults;
 
 namespace CVEApi
 {

@@ -1,4 +1,4 @@
-﻿namespace CVEApi
+﻿namespace CVEApi.ApiResults
 {
     public class ApiErrorResult : BaseApiResult
     {        

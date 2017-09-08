@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using CVEApi;
 using CVEVuln.Models;
+using CVEVuln.Models.Resources.Links;
 
 namespace CVEVuln.Controllers
 {

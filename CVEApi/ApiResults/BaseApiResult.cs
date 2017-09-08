@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using CVEVuln.Models;
+﻿using CVEVuln.Models.Resources.Links;
 
-namespace CVEApi
+namespace CVEApi.ApiResults
 {
-    public class BaseApiResult : Resource
+    public class BaseApiResult : LinkResource
     {
         public bool IsSuccess { get; internal set; }
 

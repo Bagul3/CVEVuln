@@ -6,6 +6,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
+using CVEVuln.Models;
+using CVEVuln.Models.Resources.CVE;
 
 namespace CVEVuln
 {
@@ -18,6 +21,9 @@ namespace CVEVuln
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Mapper.Initialize(cfg => {
+                cfg.CreateMap<List<VulnerabilitiesResource>, List<Vulnerabilities>>();
+            });
         }
     }
 }
