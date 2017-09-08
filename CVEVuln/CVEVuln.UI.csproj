@@ -186,6 +186,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AuthenicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VulnController.cs" />
@@ -270,9 +271,17 @@
       <Project>{ec98fa13-d0c4-4592-8b43-6a8460ab0f89}</Project>
       <Name>CVEVuln.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CVEVuln.Extensions\CVEVuln.Extensions.csproj">
+      <Project>{5ba9a981-de33-41b7-9bd1-af15291d03e9}</Project>
+      <Name>CVEVuln.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CVEVuln.Models\CVEVuln.Models.csproj">
       <Project>{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}</Project>
       <Name>CVEVuln.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CVEVuln.Security\CVEVuln.Security.csproj">
+      <Project>{084360fa-f60d-4a80-ab22-a271fbacd5e8}</Project>
+      <Name>CVEVuln.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

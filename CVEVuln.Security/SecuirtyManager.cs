@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace CVEVuln.Security
 {
-    public static class SecuirtyManager
+    public static class SecurityManager
     {
+        private static readonly SecurityService SecurityService = new SecurityService();
+
+        public static bool Authenticate(AuthenticationContextBase authenticationContext, out string authToken, out string errorMessage)
+        {
+            return SecurityService.Authenicate(authenticationContext, out authToken, out errorMessage);
+        }
+
         public class SecurityContext
         {
-            private static readonly SecurityService securityService = new SecurityService();
+            private static readonly SecurityService SecurityService = new SecurityService();
 
             internal SecurityContext()
             {
@@ -19,7 +26,7 @@ namespace CVEVuln.Security
 
             public static bool Authenicate(AuthenticationContextBase authenticationContext, out string authToken, out string errorMessage)
             {
-                return securityService.Authenicate(authenticationContext, out authToken, out errorMessage);
+                return SecurityService.Authenicate(authenticationContext, out authToken, out errorMessage);
             }
         }
     }

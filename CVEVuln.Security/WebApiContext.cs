@@ -31,6 +31,12 @@ namespace CVEVuln.Security
             this.response = response ?? new HttpResponseMessage();
         }
 
+        public WebApiContext(string username, string password, HttpRequestMessage request, HttpResponseMessage response) : this(request, response)
+        {
+            this.username = username;
+            this.password = password;
+        }
+
         protected internal override bool Authenicate(out string errorMessage)
         {
             AuthenicatorBase authenicator = new SqlAuthenicator(username, password);

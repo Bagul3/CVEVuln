@@ -21,5 +21,18 @@ namespace CVEApi
                 return Task.FromResult<BaseApiResult>(new ApiErrorResult() { Reason = CommonApiReasons.InternalError, Message = ex.Message, ErrorMessage = ex.InnerException?.ToString() } );
             }
         }
+
+        protected static BaseApiResult ExecuteSafely<T>(Func<T> func, bool nonAsync) where T : BaseApiResult
+        {
+            try
+            {
+                return func();
+            }
+            catch (Exception ex)
+            {
+                Logger.ErrorAsync(msg => msg(ex.Message), ex);
+                return new ApiErrorResult() { Reason = CommonApiReasons.InternalError, Message = ex.Message, ErrorMessage = ex.InnerException?.ToString() };
+            }
+        }
     }
 }

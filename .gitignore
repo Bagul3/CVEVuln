@@ -4,6 +4,8 @@ CVEVuln/bin/
 CVEVuln/obj/
 CVEVuln.Extensions/bin/
 CVEVuln.Extensions/obj/
+CVEVuln.Security/bin/
+CVEVuln.Security/obj/
 CVEVuln.Models/bin/
 CVEVuln.Models/obj/
 CVEVulnDA/bin/

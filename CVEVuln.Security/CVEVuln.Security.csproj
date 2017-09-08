@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>084360fa-f60d-4a80-ab22-a271fbacd5e8</ProjectGuid>
+    <ProjectGuid>{084360FA-F60D-4A80-AB22-A271FBACD5E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CVEVuln.Security</RootNamespace>
     <AssemblyName>CVEVuln.Security</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,24 +31,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AuthenicatorBase.cs" />
+    <Compile Include="AuthenticationContextBase.cs" />
+    <Compile Include="CookieData.cs" />
+    <Compile Include="FormsAuthenticationContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecuirtyManager.cs" />
+    <Compile Include="SecurityService.cs" />
+    <Compile Include="SqlAuthenicator.cs" />
+    <Compile Include="UserIdentity.cs" />
+    <Compile Include="UserPrincipal.cs" />
+    <Compile Include="WebApiContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CVEVuln.Extensions\CVEVuln.Extensions.csproj">
+      <Project>{5ba9a981-de33-41b7-9bd1-af15291d03e9}</Project>
+      <Name>CVEVuln.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CVEVuln.Models\CVEVuln.Models.csproj">
+      <Project>{1249A56C-BF7B-463B-A2BA-D5CAF2C79736}</Project>
+      <Name>CVEVuln.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CVEVulnDA\CVEVuln.DA.csproj">
+      <Project>{E28CD09B-DD16-4FCC-875A-359501C1BDA6}</Project>
+      <Name>CVEVuln.DA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

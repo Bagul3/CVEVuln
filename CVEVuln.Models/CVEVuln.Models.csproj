@@ -87,6 +87,8 @@
       <DependentUpon>CVEModels.tt</DependentUpon>
     </Compile>
     <Compile Include="SelfLink.cs" />
+    <Compile Include="Userbase.cs" />
+    <Compile Include="UserMembership.cs" />
     <Compile Include="Vulnerabilities.cs">
       <DependentUpon>CVEModels.tt</DependentUpon>
     </Compile>

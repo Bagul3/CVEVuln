@@ -13,10 +13,13 @@ namespace CVEVulnDA
             return GetUser<T>(item => item.username == userName);
         }
 
+        //TODO fix mapper
         private T GetUser<T>(Expression<Func<Account, bool>> predicate) where T : Userbase
         {
-            var user = this.FindBy(predicate).SingleOrDefault().MapToSingle<T>();
-            return user;
+            var returnValue = this.FindBy(predicate).SingleOrDefault();
+            //var user = this.FindBy(predicate).SingleOrDefault().MapToSingle<T>();
+            var user = new UserMembership(){ Email = returnValue.email, Name = returnValue.username.Trim(), Password = returnValue.password.Trim(), UserId = returnValue.accountId };
+            return user as T;
         }
     }
 }
