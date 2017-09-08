@@ -22,7 +22,7 @@ namespace CVEVuln
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<List<VulnerabilitiesResource>, List<Vulnerabilities>>();
+                cfg.CreateMap<VulnerabilitiesResource, Vulnerabilities>();
             });
         }
     }
