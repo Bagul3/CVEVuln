@@ -51,7 +51,7 @@ namespace CVEVulnService
 
         private void Enrich(VulnerabilitiesResource vulnerabilities, UrlHelper url)
         {
-            vulnerabilities.AddLink(new RefLink(url.Link("DefaultApi", new { controller = "Vuln", id = vulnerabilities.Vulnerabilities.Id })));
+            vulnerabilities.AddLink(new RefLink(url.Link("DefaultApi", new { controller = "Vuln", id = vulnerabilities.Id })));
         }
     }
 }

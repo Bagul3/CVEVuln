@@ -6,8 +6,7 @@ namespace CVEVulnDA
 {
     using System.Threading.Tasks;
 
-    public abstract class GenericRepository<C, T> :
-        IGenericRepository<T> where T : class where C : DbContext, new()
+    public abstract class GenericRepository<C, T> : IGenericRepository<T> where T : class where C : DbContext, new()
     {
 
         private C entities = new C();

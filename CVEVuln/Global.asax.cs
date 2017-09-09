@@ -21,9 +21,7 @@ namespace CVEVuln
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Mapper.Initialize(cfg => {
-                cfg.CreateMap<VulnerabilitiesResource, Vulnerabilities>();
-            });
+            
         }
     }
 }
