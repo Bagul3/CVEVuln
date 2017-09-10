@@ -10,25 +10,19 @@ namespace CVEVuln.Security
     public class UserPrincipal : IPrincipal
     {
         private readonly AuthenticationContextBase authenicationContextBase;
-        private readonly IIdentity identity;
+        private readonly IIdentity _identity;
 
         public UserPrincipal(IIdentity userIdentity, AuthenticationContextBase authenticationContextBase)
         {
-            this.identity = userIdentity;
+            this._identity = userIdentity;
             this.authenicationContextBase = authenticationContextBase;
         }
 
-        public UserIdentity UserIdentity
-        {
-            get { return identity as UserIdentity; }
-        }
+        public UserIdentity UserIdentity => _identity as UserIdentity;
 
-        public AuthenticationContextBase GetAuthenticationContextBase
-        {
-            get { return authenicationContextBase; }
-        }
+        public AuthenticationContextBase GetAuthenticationContextBase => authenicationContextBase;
 
-        public IIdentity Identity => identity;
+        public IIdentity Identity => _identity;
 
         public bool IsInRole(string role)
         {

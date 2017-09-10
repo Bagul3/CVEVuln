@@ -12,7 +12,12 @@ namespace CVEVulnDA
         {
             return GetUser<T>(item => item.username == userName);
         }
-        
+
+        public T GetUser<T>(int userId) where T : Userbase
+        {
+            return GetUser<T>(item => item.accountId == userId);
+        }
+
         private T GetUser<T>(Expression<Func<Account, bool>> predicate) where T : Userbase
         {
             var user = this.FindBy(predicate).SingleOrDefault();

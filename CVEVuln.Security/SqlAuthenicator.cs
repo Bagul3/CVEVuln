@@ -1,11 +1,5 @@
 ﻿using CVEVuln.Extensions;
-using CVEVuln.Models;
 using CVEVulnDA;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CVEVuln.Models.Resources.User;
 
 namespace CVEVuln.Security

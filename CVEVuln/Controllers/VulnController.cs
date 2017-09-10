@@ -2,6 +2,7 @@
 using CVEApi;
 using CVEVuln.Models;
 using CVEVuln.Models.Resources.Links;
+using CVEVuln.Security;
 
 namespace CVEVuln.Controllers
 {
@@ -17,6 +18,7 @@ namespace CVEVuln.Controllers
             this.cveDetails = new CveDetailsApi();
         }
         
+        [AuthorizeExtendedHttp]
         public async Task<BaseApiResult> GetVuls(string service)
         {
             var response = await this.cveDetails.GetVulnerabilities(Url, service);
@@ -24,6 +26,7 @@ namespace CVEVuln.Controllers
             return response;
         }
 
+        [AuthorizeExtendedHttp]
         public async Task<BaseApiResult> GetVul(int id)
         {
             var response = await this.cveDetails.GetVulnerability(Url, id) as VulnerabilityApiResults;
