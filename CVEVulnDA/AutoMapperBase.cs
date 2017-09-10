@@ -1,21 +1,23 @@
 ﻿using AutoMapper;
 using CVEVuln.Models;
 using CVEVuln.Models.Resources.CVE;
+using CVEVuln.Models.Resources.User;
 
 namespace CVEVulnDA
 {
     public class AutoMapperBase
     {
-        public readonly IMapper _mapper;
+        public IMapper Mapper { get; set; }
 
         public AutoMapperBase()
         {
             var config = new MapperConfiguration(x =>
             {
                 x.CreateMap<Vulnerabilities, VulnerabilitiesResource>();
+                x.CreateMap<Account, UserMembership>();
             });
 
-            _mapper = config.CreateMapper();
+            Mapper = config.CreateMapper();
         }
     }
 }

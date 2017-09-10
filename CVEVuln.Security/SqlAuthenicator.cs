@@ -12,23 +12,27 @@ namespace CVEVuln.Security
 {
     internal sealed class SqlAuthenicator : AuthenicatorBase
     {
+        private readonly UserRepository _userRepository = new UserRepository();
+        private readonly string _username;
+        private readonly string _password;
+
         public SqlAuthenicator(string username, string password)
         {
-            this.username = username;
-            this.password = password;
+            this._username = username;
+            this._password = password;
         }
 
         protected override bool AuthenicateInternal(out string errorMessage)
         {
-            if (username.IsNullOrEmpty())
+            if (_username.IsNullOrEmpty())
             {
-                errorMessage = "Username is not defined";
+                errorMessage = "Name is not defined";
                 return false;
             }
 
-            User = userRepository.GetUser<UserMembership>(username);
+            this.User = _userRepository.GetUser<UserMembership>(_username);
 
-            if (User.Password != password)
+            if (this.User.Password.Trim() != _password)
             {
                 errorMessage = "Invalid username or password";
                 return false;
@@ -37,9 +41,5 @@ namespace CVEVuln.Security
 
             return true;
         }
-
-        private readonly UserRepository userRepository = new UserRepository();
-        private readonly string username;
-        private readonly string password;
     }
 }

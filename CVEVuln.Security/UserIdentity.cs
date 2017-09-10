@@ -13,12 +13,12 @@ namespace CVEVuln.Security
             this._user = user;
         }
 
-        public string Name => _user.Name;
+        public string Name => _user.Username;
 
         public string AuthenticationType => "Forms";
 
         public bool IsAuthenticated => true;
 
-        public int Id => _user.UserId;
+        public int Id => _user.AccountId;
     }
 }

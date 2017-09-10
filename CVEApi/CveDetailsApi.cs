@@ -16,7 +16,6 @@ namespace CVEApi
 
         public async Task<BaseApiResult> GetVulnerabilities(UrlHelper url, string extService)
         {
-            //var vulns = await this.service.GetVulnerabilities(url, extService);
             return await ExecuteSafely(async () => new VulnerabilitiesApiResults
             {
                 IsSuccess = true,
