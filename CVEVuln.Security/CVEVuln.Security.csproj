@@ -56,10 +56,12 @@
     <Compile Include="AuthorizeExtendedHttpAttribute.cs" />
     <Compile Include="CookieData.cs" />
     <Compile Include="FormsAuthenticationContext.cs" />
+    <Compile Include="TokenAuthenicator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecuirtyManager.cs" />
     <Compile Include="SecurityService.cs" />
     <Compile Include="SqlAuthenicator.cs" />
+    <Compile Include="StubContext.cs" />
     <Compile Include="UserIdentity.cs" />
     <Compile Include="UserPrincipal.cs" />
     <Compile Include="WebApiContext.cs" />

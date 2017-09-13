@@ -12,8 +12,11 @@ namespace CVEVuln.Security
     public class SecurityService
     {
         private readonly UserRepository _userRepository = new UserRepository();
-        private static UserPrincipal UserPrincipal => Thread.CurrentPrincipal as UserPrincipal;
 
+        private static UserPrincipal UserPrincipal
+        {
+            get { return Thread.CurrentPrincipal as UserPrincipal ?? (UserPrincipal)(Thread.CurrentPrincipal = new UserPrincipal(null)); }
+        }
 
         public bool Authenicate(AuthenticationContextBase authenticationContextBase, out string authToken, out string errorMessage)
         {

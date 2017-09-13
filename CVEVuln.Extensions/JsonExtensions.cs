@@ -14,5 +14,11 @@ namespace CVEVuln.Extensions
         {
             return jToken == null ? default(T) : jToken.ToObject<T>();
         }
+
+        public static T FromJson<T>(this string str)
+        {
+            return JsonConvert.DeserializeObject<T>(str,
+                new JsonSerializerSettings() { Error = (sender, args) => { args.ErrorContext.Handled = true; } } );
+        }
     }
 }

@@ -9,6 +9,11 @@ namespace CVEVuln.Security
 
         public static SecurityContext Current => SecurityContextLocal;
 
+        public static bool Authenticate(AuthenticationContextBase authenticationContext)
+        {
+            return Authenticate(authenticationContext, out _, out _);
+        }
+
         public static bool Authenticate(AuthenticationContextBase authenticationContext, out string authToken, out string errorMessage)
         {
             return SecurityService.Authenicate(authenticationContext, out authToken, out errorMessage);
@@ -27,9 +32,19 @@ namespace CVEVuln.Security
             {
             }
 
-            public UserPrincipal UserPrincipal => SecurityService.GetUserPrincipal();
+            public UserPrincipal UserPrincipal
+            {
+                get { return SecurityService.GetUserPrincipal(); }
+            }
 
-            public UserMembership User => UserPrincipal.UserIdentity == null ? null : GetUser<UserMembership>(UserPrincipal.UserIdentity.Id);
+            public UserMembership User
+            {
+                get { return UserPrincipal.UserIdentity == null ? null : GetUser<UserMembership>(UserPrincipal.UserIdentity.Id); }
+            }
+
+            //public UserPrincipal UserPrincipal => SecurityService.GetUserPrincipal();
+
+            //public UserMembership User => UserPrincipal.UserIdentity == null ? null : GetUser<UserMembership>(UserPrincipal.UserIdentity.Id);
 
             public static bool Authenicate(AuthenticationContextBase authenticationContext, out string authToken, out string errorMessage)
             {

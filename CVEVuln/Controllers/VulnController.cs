@@ -9,27 +9,27 @@ namespace CVEVuln.Controllers
     using CVEApi.ApiResults;
     using System.Threading.Tasks;
 
-    public class VulnController : ApiController
+    public class VulnController : BaseController
     {
-        private readonly CveDetailsApi cveDetails;
+        private readonly CveDetailsApi _cveDetails;
 
         public VulnController()
         {
-            this.cveDetails = new CveDetailsApi();
+            this._cveDetails = new CveDetailsApi();
         }
         
-        //[AuthorizeExtendedHttp]
+        [AuthorizeExtendedHttp]
         public async Task<BaseApiResult> GetVuls(string service)
         {
-            var response = await this.cveDetails.GetVulnerabilities(Url, service);
+            var response = await this._cveDetails.GetVulnerabilities(Url, service);
             response.AddLink(new SelfLink(this.Url.Link("DefaultApi", new { controller = "Vuln" })));
             return response;
         }
 
-        //[AuthorizeExtendedHttp]
+        [AuthorizeExtendedHttp]
         public async Task<BaseApiResult> GetVul(int id)
         {
-            var response = await this.cveDetails.GetVulnerability(Url, id) as VulnerabilityApiResults;
+            var response = await this._cveDetails.GetVulnerability(Url, id) as VulnerabilityApiResults;
             response.AddLink(new SelfLink(this.Url.Link("DefaultApi", new { controller = "Vuln", id = id })));
             return response;
         }

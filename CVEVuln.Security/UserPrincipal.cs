@@ -12,9 +12,14 @@ namespace CVEVuln.Security
         private readonly AuthenticationContextBase authenicationContextBase;
         private readonly IIdentity _identity;
 
+        public UserPrincipal(IIdentity identity) : this(identity, new StubContext())
+        {
+        }
+
         public UserPrincipal(IIdentity userIdentity, AuthenticationContextBase authenticationContextBase)
         {
-            this._identity = userIdentity;
+
+            this._identity = userIdentity ?? new GenericIdentity(string.Empty);
             this.authenicationContextBase = authenticationContextBase;
         }
 

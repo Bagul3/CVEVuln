@@ -9,6 +9,7 @@ using System.Web.Routing;
 using AutoMapper;
 using CVEVuln.Models;
 using CVEVuln.Models.Resources.CVE;
+using CVEVuln.Security;
 
 namespace CVEVuln
 {
@@ -21,7 +22,6 @@ namespace CVEVuln
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
         }
     }
 }
