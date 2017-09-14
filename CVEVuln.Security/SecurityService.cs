@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using CVEVulnDA;
 using CVEVuln.Models.Resources.User;
 
@@ -13,10 +8,7 @@ namespace CVEVuln.Security
     {
         private readonly UserRepository _userRepository = new UserRepository();
 
-        private static UserPrincipal UserPrincipal
-        {
-            get { return Thread.CurrentPrincipal as UserPrincipal ?? (UserPrincipal)(Thread.CurrentPrincipal = new UserPrincipal(null)); }
-        }
+        private static UserPrincipal UserPrincipal => Thread.CurrentPrincipal as UserPrincipal ?? (UserPrincipal)(Thread.CurrentPrincipal = new UserPrincipal(null));
 
         public bool Authenicate(AuthenticationContextBase authenticationContextBase, out string authToken, out string errorMessage)
         {

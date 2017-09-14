@@ -28,7 +28,7 @@ namespace CVEVuln.Controllers
         public async Task<BaseApiResult> GetVul(int id)
         {
             var response = await this._cveDetails.GetVulnerability(Url, id) as VulnerabilityApiResults;
-            response.AddLink(new SelfLink(this.Url.Link("DefaultApi", new { controller = "Vuln", id = id })));
+            response?.AddLink(new SelfLink(this.Url.Link("DefaultApi", new { controller = "Vuln", id })));
             return response;
         }
     }

@@ -3,7 +3,6 @@ using CVEVuln.Extensions;
 using CVEVuln.Security;
 using Newtonsoft.Json.Linq;
 using System.Web.Http;
-using System.Web.Http.Routing;
 using CVEApi.ApiResults;
 
 namespace CVEVuln.Controllers
