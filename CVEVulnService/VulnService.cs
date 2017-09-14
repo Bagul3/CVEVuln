@@ -15,16 +15,16 @@ namespace CVEVulnService
 
     public class VulnService : BaseService
     {
-        private readonly VulnerabilityRepository repository;
+        private readonly VulnerabilityRepository _repository;
 
         public VulnService()
         {
-            this.repository = new VulnerabilityRepository();
+            this._repository = new VulnerabilityRepository();
         }
 
         public async Task<List<VulnerabilitiesResource>> GetVulnerabilities(UrlHelper url, string service)
         {
-            var vuls = await this.repository.GetVulnerabilitiesByServiceName(service);
+            var vuls = await this._repository.GetVulnerabilitiesByServiceName(service);
             vuls.ForEach(vulnerabilities => this.Enrich(vulnerabilities, url));
             return vuls;
         }
@@ -36,12 +36,12 @@ namespace CVEVulnService
             var stringTask = this.Client.GetByteArrayAsync(serviceType.GetStringValue()).Result;
             var vulns = JsonConvert.DeserializeObject<List<Vulnerabilities>>(Encoding.UTF8.GetString(stringTask));
             vulns.ForEach(vulnerabilities => EnrichServiceType(vulnerabilities, service));
-            await this.repository.InsertVulnerabilities(vulns);
+            await this._repository.InsertVulnerabilities(vulns);
         }
 
         public async Task<Vulnerabilities> GetVulnerability(UrlHelper url, int id)
         {
-            return await this.repository.GetVulnerability(id);
+            return await this._repository.GetVulnerability(id);
         }
 
         private static void EnrichServiceType(Vulnerabilities vulnerabilities, string service)
