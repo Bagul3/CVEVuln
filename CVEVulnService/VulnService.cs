@@ -11,7 +11,6 @@ using Newtonsoft.Json;
 
 namespace CVEVulnService
 {
-    using System.Data.Entity;
 
     public class VulnService : BaseService
     {

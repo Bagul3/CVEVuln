@@ -16,7 +16,7 @@ namespace CVEVuln.Controllers
         {
             var userName = jObject["name"].As<string>();
             var userPassword = jObject["password"].As<string>();
-            return AuthenicationApi.Authenticate(new WebApiContext(userName, userPassword, Request, null));
+            return AuthenicationApi.Authenticate(new WebApiContext(userName, userPassword, Request, null, ControllerContext));
         }
     }
 }

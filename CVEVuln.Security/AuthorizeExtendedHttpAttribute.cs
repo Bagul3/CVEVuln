@@ -14,7 +14,7 @@ namespace CVEVuln.Security
         
         protected override bool IsAuthorized(HttpActionContext actionContext)
         {
-            actionContext.RequestContext.Principal = new UserPrincipal(new UserIdentity(SecurityManager.Current.User));
+            //actionContext.RequestContext.Principal = new UserPrincipal(new UserIdentity(SecurityManager.Current.User));
             return base.IsAuthorized(actionContext) && User != null;
         }
 

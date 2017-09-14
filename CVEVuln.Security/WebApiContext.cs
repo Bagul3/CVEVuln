@@ -1,9 +1,8 @@
-﻿using CVEVuln.Models;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
-using System.Web;
+using System.Web.Http.Controllers;
 using CVEVuln.Models.Resources.User;
 
 
@@ -15,20 +14,22 @@ namespace CVEVuln.Security
         private readonly string _password;
         private readonly HttpRequestMessage _request;
         private readonly HttpResponseMessage _response;
+        private readonly HttpControllerContext _actionContext;
         private readonly AuthenicationMode _authenicationMode;
 
         protected internal override UserMembership User { get; set; }
 
         protected internal override string AuthToken { get; set; }
 
-        public WebApiContext(HttpRequestMessage request, HttpResponseMessage response = null)
+        public WebApiContext(HttpRequestMessage request, HttpResponseMessage response, HttpControllerContext actionContext)
         {
             this._request = request ?? new HttpRequestMessage();
+            this._actionContext = actionContext;
             this._response = response ?? new HttpResponseMessage();
             _authenicationMode = AuthenicationMode.Token;
         }
 
-        public WebApiContext(string username, string password, HttpRequestMessage request, HttpResponseMessage response) : this(request, response)
+        public WebApiContext(string username, string password, HttpRequestMessage request, HttpResponseMessage response, HttpControllerContext actionContext) : this(request, response, actionContext)
         {
             this._username = username;
             this._password = password;
@@ -84,6 +85,7 @@ namespace CVEVuln.Security
             AuthToken = this.CreateAuthToken();
             this._response.Headers.AddCookies(new[] { new CookieHeaderValue(FormCookieName, AuthToken) { HttpOnly = true } });
             Thread.CurrentPrincipal = new UserPrincipal(new UserIdentity(User), this);
+            _actionContext.RequestContext.Principal = new UserPrincipal(new UserIdentity(User), this);
         }
 
         private bool AuthenticateByToken(out string errorMessage)

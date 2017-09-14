@@ -42,10 +42,6 @@ namespace CVEVuln.Security
                 get { return UserPrincipal.UserIdentity == null ? null : GetUser<UserMembership>(UserPrincipal.UserIdentity.Id); }
             }
 
-            //public UserPrincipal UserPrincipal => SecurityService.GetUserPrincipal();
-
-            //public UserMembership User => UserPrincipal.UserIdentity == null ? null : GetUser<UserMembership>(UserPrincipal.UserIdentity.Id);
-
             public static bool Authenicate(AuthenticationContextBase authenticationContext, out string authToken, out string errorMessage)
             {
                 return SecurityService.Authenicate(authenticationContext, out authToken, out errorMessage);

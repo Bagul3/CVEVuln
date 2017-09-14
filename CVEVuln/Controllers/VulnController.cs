@@ -1,7 +1,4 @@
-﻿using System;
-using System.Web.Http;
-using CVEApi;
-using CVEVuln.Models;
+﻿using CVEApi;
 using CVEVuln.Models.Resources.Links;
 using CVEVuln.Security;
 

@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CVEVuln.Security
 {
     public class UserPrincipal : IPrincipal
     {
-        private readonly AuthenticationContextBase authenicationContextBase;
-        private readonly IIdentity _identity;
-
         public UserPrincipal(IIdentity identity) : this(identity, new StubContext())
         {
         }
@@ -19,15 +12,15 @@ namespace CVEVuln.Security
         public UserPrincipal(IIdentity userIdentity, AuthenticationContextBase authenticationContextBase)
         {
 
-            this._identity = userIdentity ?? new GenericIdentity(string.Empty);
-            this.authenicationContextBase = authenticationContextBase;
+            this.Identity = userIdentity ?? new GenericIdentity(string.Empty);
+            this.GetAuthenticationContextBase = authenticationContextBase;
         }
 
-        public UserIdentity UserIdentity => _identity as UserIdentity;
+        public UserIdentity UserIdentity => Identity as UserIdentity;
 
-        public AuthenticationContextBase GetAuthenticationContextBase => authenicationContextBase;
+        public AuthenticationContextBase GetAuthenticationContextBase { get; }
 
-        public IIdentity Identity => _identity;
+        public IIdentity Identity { get; }
 
         public bool IsInRole(string role)
         {
