@@ -18,7 +18,6 @@ namespace CVEVulnDA
                 x.CreateMap<Account, UserMembership>();
                 x.CreateMap<AccountInRoles, RolesResource>();
                 x.CreateMap<Roles, RolesResource>();
-                x.CreateMap<Account, UserResource>();
                 x.CreateMap<UserResource, Account>();
 
             });

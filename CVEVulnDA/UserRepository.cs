@@ -19,6 +19,7 @@ namespace CVEVulnDA
             return GetUser<T>(item => item.accountId == userId);
         }
 
+        //Make this async
         public bool AddUserAsync<T>(T user) where T : UserResource
         {
             var account = new AutoMapperBase().Mapper.Map<Account>(user);
