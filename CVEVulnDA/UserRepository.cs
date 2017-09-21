@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using CVEVuln.Models.Resources.User;
 
 namespace CVEVulnDA
@@ -16,6 +17,14 @@ namespace CVEVulnDA
         public T GetUser<T>(int userId) where T : Userbase
         {
             return GetUser<T>(item => item.accountId == userId);
+        }
+
+        public bool AddUserAsync<T>(T user) where T : UserResource
+        {
+            var account = new AutoMapperBase().Mapper.Map<Account>(user);
+            this.Add(account);
+            this.Save();
+            return true;
         }
 
         private T GetUser<T>(Expression<Func<Account, bool>> predicate) where T : Userbase

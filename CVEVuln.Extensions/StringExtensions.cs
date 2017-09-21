@@ -12,5 +12,10 @@ namespace CVEVuln.Extensions
         {
             return string.IsNullOrEmpty(value);
         }
+
+        public static byte[] ToByteArray(this string value)
+        {
+            return Encoding.ASCII.GetBytes(value);
+        }
     }
 }

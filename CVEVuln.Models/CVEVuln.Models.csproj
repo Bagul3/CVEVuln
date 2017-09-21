@@ -92,6 +92,7 @@
     <Compile Include="Resources\Roles\RolesResource.cs" />
     <Compile Include="Resources\Links\SelfLink.cs" />
     <Compile Include="Resources\User\Userbase.cs" />
+    <Compile Include="Resources\User\UserResource.cs" />
     <Compile Include="Resources\User\UserMembership.cs" />
     <Compile Include="Roles.cs">
       <DependentUpon>CVEModels.tt</DependentUpon>

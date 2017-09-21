@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AesEncrypt.cs" />
     <Compile Include="AuthenicatorBase.cs" />
     <Compile Include="AuthenticationContextBase.cs" />
     <Compile Include="AuthorizeExtendedHttpAttribute.cs" />
