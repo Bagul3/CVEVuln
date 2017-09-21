@@ -28,5 +28,6 @@ namespace CVEVuln.Models
         public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Vulnerabilities> Vulnerabilities { get; set; }
+        public virtual DbSet<AccountInRoles> AccountInRoles { get; set; }
     }
 }

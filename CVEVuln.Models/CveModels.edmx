@@ -10,17 +10,26 @@
             <PropertyRef Name="accountId" />
           </Key>
           <Property Name="accountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="nchar" MaxLength="100" Nullable="false" />
-          <Property Name="surname" Type="nchar" MaxLength="100" Nullable="false" />
-          <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
-          <Property Name="password" Type="nchar" MaxLength="500" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CVE_Vuln.dbo.AccountInRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AccountInRoles">
+          <Key>
+            <PropertyRef Name="accountId" />
+          </Key>
+          <Property Name="accountId" Type="int" Nullable="false" />
+          <Property Name="roleId" Type="int" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="roleId" />
           </Key>
           <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="roleName" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="roleName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Vulnerabilities">
           <Key>
@@ -41,6 +50,12 @@
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerabilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountInRoles" EntityType="Self.AccountInRoles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AccountInRoles].[accountId] AS [accountId], 
+    [AccountInRoles].[roleId] AS [roleId]
+    FROM [dbo].[AccountInRoles] AS [AccountInRoles]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -52,17 +67,17 @@
             <PropertyRef Name="accountId" />
           </Key>
           <Property Name="accountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="surname" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="500" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="roleId" />
           </Key>
           <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="roleName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="roleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Vulnerabilities">
           <Key>
@@ -79,10 +94,18 @@
           <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="service" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="AccountInRoles">
+          <Key>
+            <PropertyRef Name="accountId" />
+          </Key>
+          <Property Name="accountId" Type="Int32" Nullable="false" />
+          <Property Name="roleId" Type="Int32" />
+        </EntityType>
         <EntityContainer Name="CVE_VulnEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Vulnerabilities" EntityType="Self.Vulnerabilities" />
+          <EntitySet Name="AccountInRoles" EntityType="Self.AccountInRoles" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -122,6 +145,14 @@
                 <ScalarProperty Name="update_date" ColumnName="update_date" />
                 <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="service" ColumnName="service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountInRoles">
+            <EntityTypeMapping TypeName="CVE_VulnModel.AccountInRoles">
+              <MappingFragment StoreEntitySet="AccountInRoles">
+                <ScalarProperty Name="accountId" ColumnName="accountId" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

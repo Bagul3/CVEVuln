@@ -16,7 +16,7 @@ namespace CVEVuln.Controllers
             this._cveDetails = new CveDetailsApi();
         }
         
-        [AuthorizeExtendedHttp]
+        [AuthorizeExtendedHttp(Roles = "admin")]
         public async Task<BaseApiResult> GetVuls(string service)
         {
             var response = await this._cveDetails.GetVulnerabilities(Url, service);

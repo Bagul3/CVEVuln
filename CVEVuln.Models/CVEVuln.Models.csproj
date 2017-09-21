@@ -64,6 +64,9 @@
     <Compile Include="Account.cs">
       <DependentUpon>CVEModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="AccountInRoles.cs">
+      <DependentUpon>CVEModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="CveEndpoints.cs" />
     <Compile Include="CVEModels.Context.cs">
       <AutoGen>True</AutoGen>
@@ -86,12 +89,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Links\RefLink.cs" />
     <Compile Include="Resources\Links\LinkResource.cs" />
-    <Compile Include="Roles.cs">
-      <DependentUpon>CVEModels.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Resources\Roles\RolesResource.cs" />
     <Compile Include="Resources\Links\SelfLink.cs" />
     <Compile Include="Resources\User\Userbase.cs" />
     <Compile Include="Resources\User\UserMembership.cs" />
+    <Compile Include="Roles.cs">
+      <DependentUpon>CVEModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Vulnerabilities.cs">
       <DependentUpon>CVEModels.tt</DependentUpon>
     </Compile>
@@ -128,6 +132,5 @@
       <LastGenOutput>CVEModels.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

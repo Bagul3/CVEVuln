@@ -19,7 +19,6 @@ namespace CVEVulnDA
 
         public virtual IQueryable<T> GetAll()
         {
-
             IQueryable<T> query = this.entities.Set<T>();
             return query;
         }

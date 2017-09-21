@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CVEVuln.Models;
 using CVEVuln.Models.Resources.CVE;
+using CVEVuln.Models.Resources.Roles;
 using CVEVuln.Models.Resources.User;
 
 namespace CVEVulnDA
@@ -15,6 +16,8 @@ namespace CVEVulnDA
             {
                 x.CreateMap<Vulnerabilities, VulnerabilitiesResource>();
                 x.CreateMap<Account, UserMembership>();
+                x.CreateMap<AccountInRoles, RolesResource>();
+                x.CreateMap<Roles, RolesResource>();
             });
 
             Mapper = config.CreateMapper();
