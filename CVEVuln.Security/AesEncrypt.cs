@@ -6,7 +6,7 @@ namespace CVEVuln.Security
 {
     public static class AesEncrypt
     {
-        public static string Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
+        public static string Encrypt(byte[] bytesToBeEncrypted)
         {
             byte[] encryptedBytes = null;
 
@@ -21,7 +21,7 @@ namespace CVEVuln.Security
                     aes.KeySize = 256;
                     aes.BlockSize = 128;
 
-                    var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
+                    var key = new Rfc2898DeriveBytes(bytesToBeEncrypted, saltBytes, 1000);
                     aes.Key = key.GetBytes(aes.KeySize / 8);
                     aes.IV = key.GetBytes(aes.BlockSize / 8);
 
@@ -39,7 +39,7 @@ namespace CVEVuln.Security
             return encryptedBytes.AsString();
         }
 
-        public static string Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
+        public static string Decrypt(this byte[] bytesToBeDecrypted)
         {
             byte[] decryptedBytes = null;
 
@@ -54,7 +54,7 @@ namespace CVEVuln.Security
                     aes.KeySize = 256;
                     aes.BlockSize = 128;
 
-                    var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
+                    var key = new Rfc2898DeriveBytes(bytesToBeDecrypted, saltBytes, 1000);
                     aes.Key = key.GetBytes(aes.KeySize / 8);
                     aes.IV = key.GetBytes(aes.BlockSize / 8);
 

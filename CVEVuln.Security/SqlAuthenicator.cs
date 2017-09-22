@@ -26,7 +26,7 @@ namespace CVEVuln.Security
 
             this.User = _userRepository.GetUser<UserMembership>(_username);
 
-            if (this.User.Password.Trim() != _password)
+            if (this.User.Password.ToByteArray().Decrypt().Trim() != _password)
             {
                 errorMessage = "Invalid username or password";
                 return false;

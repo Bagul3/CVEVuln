@@ -2,7 +2,6 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using CVEVuln.Models.Resources.User;
 
 namespace CVEVulnDA
@@ -18,14 +17,18 @@ namespace CVEVulnDA
         {
             return GetUser<T>(item => item.accountId == userId);
         }
-
-        //Make this async
-        public bool AddUserAsync<T>(T user) where T : UserResource
+        
+        public int AddUser<T>(T user) where T : UserResource
         {
             var account = new AutoMapperBase().Mapper.Map<Account>(user);
-            this.Add(account);
-            this.Save();
-            return true;
+            this.AddAndSave(account);
+            return account.accountId;
+        }
+
+        public bool ValidateUser(string username)
+        {
+            var users = this.FindBy(x => x.username == username);
+            return !users.Any();
         }
 
         private T GetUser<T>(Expression<Func<Account, bool>> predicate) where T : Userbase

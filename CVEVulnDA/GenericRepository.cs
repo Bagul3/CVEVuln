@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
@@ -19,20 +21,25 @@ namespace CVEVulnDA
 
         public virtual IQueryable<T> GetAll()
         {
-            IQueryable<T> query = this.entities.Set<T>();
+            var query = this.entities.Set<T>();
             return query;
         }
 
         public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
 
-            IQueryable<T> query = this.entities.Set<T>().Where(predicate);
+            var query = this.entities.Set<T>().Where(predicate);
             return query;
         }
 
         public virtual void Add(T entity)
         {
             this.entities.Set<T>().Add(entity);
+        }
+
+        public virtual void AddCollection(IEnumerable<T> entity)
+        {
+            this.entities.Set<T>().AddRange(entity);
         }
 
         public virtual void Delete(T entity)
@@ -45,9 +52,20 @@ namespace CVEVulnDA
             this.entities.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual async Task Save()
+        public virtual async Task AsyncSave()
         {
             await this.entities.SaveChangesAsync();
+        }
+
+        public virtual void AddAndSave(T entity)
+        {
+            this.entities.Set<T>().Add(entity);
+            this.entities.SaveChanges();
+        }
+
+        public virtual void Save()
+        {
+            this.entities.SaveChanges();
         }
     }
 }

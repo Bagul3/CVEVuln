@@ -17,6 +17,6 @@ namespace CVEVulnDA
 
         void Edit(T entity);
 
-        Task Save();
+        Task AsyncSave();
     }
 }

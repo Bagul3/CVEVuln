@@ -19,7 +19,6 @@ namespace CVEVulnDA
                 x.CreateMap<AccountInRoles, RolesResource>();
                 x.CreateMap<Roles, RolesResource>();
                 x.CreateMap<UserResource, Account>();
-
             });
 
             Mapper = config.CreateMapper();

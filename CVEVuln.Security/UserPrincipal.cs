@@ -6,16 +6,16 @@ namespace CVEVuln.Security
 {
     public class UserPrincipal : IPrincipal
     {
-        private readonly RolesRepository _rolesRepository;
+        private readonly AccountInRolesRepository _rolesRepository;
 
         public UserPrincipal(IIdentity identity) : this(identity, new StubContext())
         {
-            _rolesRepository = new RolesRepository();
+            _rolesRepository = new AccountInRolesRepository();
         }
 
         public UserPrincipal(IIdentity userIdentity, AuthenticationContextBase authenticationContextBase)
         {
-            _rolesRepository = new RolesRepository();
+            _rolesRepository = new AccountInRolesRepository();
             this.Identity = userIdentity ?? new GenericIdentity(string.Empty);
             this.GetAuthenticationContextBase = authenticationContextBase;
         }
